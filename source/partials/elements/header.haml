@@ -1,0 +1,25 @@
+%header.page_header.container-fluid
+  .row.main-header
+    .col-md-10.col-md-offset-1
+      %nav.navbar.navbar-default
+        .navbar-header
+          %button.navbar-toggle.collapsed{type: "button", "data-toggle"=>"collapse", "data-target"=>"#main-nav", "aria-expanded"=>"false"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand.logo_text{href: "/"}
+            Art Tracks:
+            %br.visible-xs-inline
+            %strong Museum Provenance
+          %a.logo_text_subhead{href: "http://www.cmoa.org"} A project of Carnegie Museum of Art
+        .collapse.navbar-collapse#main-nav
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: "/pages/standard"} The Provenance Standard
+            %li
+              %a{href: "/pages/elysa"} Elysa
+            %li
+              %a{href: "/pages/Team"} The Team
+            %li
+              %a{href: "/pages/press"} Publications & Articles
