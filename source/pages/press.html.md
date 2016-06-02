@@ -1,3 +1,12 @@
+---
+title: "Publications & Articles"
+hero_image: "1012263.jpg"
+hero_image_credit: "Paul Signac, *Place des Lices, St. Tropez* (detail), 1893. Carnegie Museum of Art, Acquired through the generosity of the Sarah Mellon Scaife Family, 66.24.2."
+hero_image_url: "http://www.cmoa.org/CollectionDetail.aspx?item=1012263"
+---
+
+# Publications & Articles
+
 ## Museum Blog
 
 The Art Tracks team regularly contibutes articles to the Carnegie Museum of Art's blog. 
