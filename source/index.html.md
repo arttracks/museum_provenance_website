@@ -16,7 +16,7 @@ Once we have converted our provenance information into structured data, we can a
 
 ## Publications
 
-The [**CMOA Provenance Standard**](pages/standard_v_0_1) is a strict superset of the AAM provenance standard, designed to resolve ambiguities and provide guidance and machine-readability. A draft version has been published.  Examples of [records written using this style](/pages/example_records) are available.
+The [**CMOA Provenance Standard**](pages/standard) is a strict superset of the AAM provenance standard, designed to resolve ambiguities and provide guidance and machine-readability. A draft version has been published.  Examples of [records written using this style](/pages/example_records) are available.
 
 
 ## Software Tools
