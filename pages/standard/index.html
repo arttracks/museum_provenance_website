@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    
+    <title>Museum Provenance | Art Tracks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <!-- Typekit embed -->
+    <script src="https://use.typekit.net/nuy1eto.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!-- Shim for IE8 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class='pages pages_standard pages_standard_index'>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <header class='page_header container-fluid'>
+      <div class='row main-header'>
+        <div class='col-md-10 col-md-offset-1'>
+          <nav class='navbar navbar-default'>
+            <div class='navbar-header'>
+              <button aria-expanded='false' class='navbar-toggle collapsed' data-target='#main-nav' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+              </button>
+              <a class='navbar-brand logo_text' href='/'>
+                <strong>Art Tracks</strong>
+              </a>
+              <a class='logo_text_subhead' href='http://www.cmoa.org'>A project of Carnegie Museum of Art</a>
+            </div>
+            <div class='collapse navbar-collapse' id='main-nav'>
+              <ul class='nav navbar-nav navbar-right'>
+                <li>
+                  <a href='/pages/standard'>The Provenance Standard</a>
+                </li>
+                <li>
+                  <a href='/pages/team'>The Team</a>
+                </li>
+                <li>
+                  <a href='/pages/press'>Publications & Articles</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class='container-fluid main-content'>
+      <article class='row' id='content'>
+        <div class='col-xs-12 col-md-8 col-md-offset-2'>
+          <h1 id="the-cmoa-provenance-standard">The CMOA Provenance Standard</h1>
+          
+          <h5 id="draft-version-01brpublished-march-14-2015">Draft Version 0.1<br />Published March 14, 2015</h5>
+          
+          <h2 id="statement-of-problem">Statement of Problem</h2>
+          
+          <p>At the Carnegie Museum of Art, as with many institutions, provenance is recorded in a text field within our collections management system.  As such, there is no machine-readable structure, and it is difficult or impossible to automatically analyse the data contained within.</p>
+          
+          <p>One of the primary goals of Art Tracks is to defined a model and structure for storing and capturing the data within provenance in a machine-readable format.</p>
+          
+          <h2 id="current-standards">Current Standards</h2>
+          
+          <p>Traditional provenance records, while text, are designed to communicate research effectively and tersely.  As such, there are loose standards defined.</p>
+          
+          <p>The most common of these standards was defined by the American Association of Museums, in <em>The AAM Guide to Provenance Research</em>:</p>
+          
+          <blockquote>
+          
+            <p>Provenance information should be presented in a clear and organized fashion and be as complete as possbile.  The sequence of ownership should be easily understood.  The order of ownership may be earilest to latest owner, or the reverse, as long as the chronology is obvious.  There should be some mechanism by which owners are distinguished from dealers or auctioneers.  The sources of information about each owner or transaction shuld be documented.  In publishing provenance information, the museum should include an explanation of its format.</p>
+          </blockquote>
+          
+          <blockquote>
+          
+            <p>The provenance is listed in chronological order, beginning with the earliest known owner. Life dates of owners, if known, are enclosed in brackets. Uncertain information is indicated by the terms "possibly" or "probably" and explained in footnotes. Dealers, auction houses, or agents are enclosed in parentheses to distinguish them from private owners. Relationships between owners and methods of transactions are indicated by punctuation: a semicolon is used to indicate that the work passed directly between two owners (including dealers, auction houses, or agents), and a period is used to separate two owners (including dealers, auction houses, or agents) if a direct transfer did not occur or is not known to have occurred. Footnotes are used to document or clarify information.</p>
+          </blockquote>
+          
+          <p>An informal survey of American museums indicate that most museums that explicitly reference a format either use this standard directly or use a modified version with either additions or minor structural modifications.</p>
+          
+          <p>As such, basing our structured data model off this recommendation seems a wise course of action.</p>
+          
+          <h2 id="technical-considerations">Technical Considerations</h2>
+          
+          <p>Given the underlying structure of the provenance information, we considered several possibliities for the canonical reference for this information.  To do so, we developed the following set of guidelines for describing our goals</p>
+          
+          <ol>
+            <li>Provenance must be represented as unambiguous structured data.</li>
+            <li>There should only be a single source of truth for provenance data.</li>
+            <li>The provenance information should follow industry standards when available.</li>
+            <li>Provenance should balance simplicity, capturing nuance, and unambiguity.</li>
+            <li>Information should not be discarded.</li>
+            <li>The system should be designed for usability.</li>
+            <li>The system should be as simple as possible.</li>
+            <li>The system should be technologically feasible.</li>
+            <li>Not all information can be unambiguous.</li>
+            <li>Not all information can be structured.</li>
+            <li>The current industry standard for provenance records is a paragraph of standardized text.</li>
+          </ol>
+          
+          <p>Designing for usability, as well as designing for a single source of truth, means that there exists a conflict between the traditional provenance record as a block of text and the requirements of structured data.</p>
+          
+          <p>One option was to ignore the requirement for a single source of truth, and have both structured and unstructured representations of provenance data.  While technically the easiest option, it is very easy for the two sources of data to diverge, and there would be no method to detect such divergences.  Enforcing data constraints with policy tends to be less than optimal, and without a detection mechanism, experience has shown that one of the two systems will become untrusted.</p>
+          
+          <p>Given that two versions of the data is non-optimal, the second option of converting provenance to structured data and treating the textual record as a produced artifact of the data is tempting.  This would allow the data to be the single source of truth.  This is also a technically appealing solution, since it allows the use of existing technological tools (such as relational databases) and simple data modelling constraints.</p>
+          
+          <p>The major issues with this option revolve around usability.  Given that most museums do not have structured provenance data, in order for the structured data to be the single source of truth, all existing records would have to be converted immediately, or a transition period would have to be enforced where either no new information is added, or all information is added to both places.  Additionally, extensive training would have to be provided to all staff on how to read and write provenance information.</p>
+          
+          <p>Another constraint is the flexibility of existing Collection Management Systems.  Either the CMS has to be extended to handle the new data, or there has to be a new tool added and maintained to store and handle the data.</p>
+          
+          <p>Given these issues, the decision was made that the primary description of the structured data should remain the paragraph of provenance text.  This has the benefit of working with existing tooling, and also allowing a gradual conversion of records without problems; however, this presents its own issues.  The largest of these issues is that text is not traditionally an excellent source of unambiguity, and the structure of either English or the AAM guidelines is not sufficient to guarantee parsability.</p>
+          
+          <h2 id="definition-of-provenance">Definition of Provenance</h2>
+          
+          <ol>
+            <li>A provenance record is, at its core, a paragraph.</li>
+            <li>Each paragraph describes the custody, location, and ownership of a work of art.</li>
+            <li>Each paragraph is made of sentences, with each sentence representing an unbroken, known chain of custody.</li>
+            <li>Each sentence has one or more clauses, separated by semicolons, that represent a single party who has had custody or ownership of the work of art.</li>
+            <li>Each clause can also indicate its certainty.</li>
+            <li>Each clause contains several data points, describing the party, the location, the method of acquisition, the dates of acquisition and deacquisition.</li>
+            <li>Each data point can also indicate its certainty.</li>
+            <li>Each clause can be annotated with footnotes, which contain additional, unstructured information about the clause.</li>
+          </ol>
+          
+          <hr />
+          
+          <h2 id="general-format">General format</h2>
+          
+          <blockquote>
+            <p>Possibly by descent to Vincent Price, the artist [1911?-1993], St. Louis, MS, before 1990 [1].</p>
+          </blockquote>
+          
+          <h2 id="capitalization-of-the-first-letter">Capitalization of the first letter</h2>
+          
+          <p>If this is the first record or the previous record ends in a period, capitalize the first word.  Otherwise, use standard capitalization (if it's a proper name, capitalize, if it's not, don't.)</p>
+          
+          <h2 id="period-certainty">Period Certainty</h2>
+          
+          <p>If the entire period is uncertain, <code>Possibly</code>, otherwise nothing.</p>
+          
+          <h2 id="acquisition-method">Acquisition Method</h2>
+          
+          <p><strong>The method of acquisition or transfer.</strong></p>
+          
+          <p>Controlled vocabulary— see <em>list</em></p>
+          
+          <p>Usually the acquisition method goes before the name.  For grammatical sanity, it will occasionally go after the name and the birth/death dates if present.  See the list for options here.</p>
+          
+          <h2 id="name">Name:</h2>
+          
+          <p><strong>The name of the party.</strong></p>
+          
+          <blockquote>
+            <p>Claude Monet</p>
+          </blockquote>
+          
+          <p>If there are clauses, like, "wife of previous" or "the artist", they follow the name.  These clauses are a semi controlled vocabulary—it can be extended as needed.  Please see the <em>attached list</em> for current exceptions and vocabulary.</p>
+          
+          <blockquote>
+            <p>Michel Monet, son of the artist</p>
+          </blockquote>
+          
+          <p>not</p>
+          
+          <blockquote>
+            <p>Son of the artist, Michel Monet</p>
+          </blockquote>
+          
+          <p>If the name is uncertain, follow the name with a question mark.</p>
+          
+          <blockquote>
+            <p>George Strait?</p>
+          </blockquote>
+          
+          <p>not</p>
+          
+          <blockquote>
+            <p>Possibly George Strait</p>
+          </blockquote>
+          
+          <p>This prevents confusion around the question of which aspect is certain of uncertain, the party or the entire record.</p>
+          
+          <p>If the party's name has multiple initials, use a space between them.</p>
+          
+          <blockquote>
+            <p>J. J. Abrams</p>
+          </blockquote>
+          
+          <p>not</p>
+          
+          <blockquote>
+            <p>J.J. Abrams</p>
+          </blockquote>
+          
+          <p>For estate and other sales, the party is the gallery or auction house that hosted the sale, not the name of the sale. The name of the sale should be contained within a footnote if known.</p>
+          
+          <p>If the gallery is not known, the party is "The estate of Claude Monet" or something similar.</p>
+          
+          <p>If the part is not known, use <strong>Unknown party</strong> or <strong>Unknown collector</strong> or something similar.  Don't leave it blank.</p>
+          
+          <p>If the party is a marriage, and the work is co-owned by the parties of the marriage, the party should be</p>
+          
+          <blockquote>
+            <p>Mr &amp; Mrs. Marshall Fields III</p>
+          </blockquote>
+          
+          <p>For marriages, we are recording only the name of the man as per tradition.  If the wife's name is known, attach it in a footnote.</p>
+          
+          <p>This is the marriage of these two people, not either of these people themselves.  Any dates or locations should refer to the marriage, and a transfer of provenance should occur if a marriage ends in either death or divorce.</p>
+          
+          <h2 id="birth-and-death-dates">Birth and Death dates</h2>
+          
+          <p><strong>Birth and Death dates of a party. 
+          Years of operation if an organization.<br />
+          Years of marriage if a marriage.</strong></p>
+          
+          <p>Birth and death dates are years, enclosed within braces and separated by a dash.</p>
+          
+          <blockquote>
+            <p>[1880-1955]</p>
+          </blockquote>
+          
+          <p>If the date is unknown, or the party is still alive, exclude that date, but leave the dash.</p>
+          
+          <blockquote>
+            <p>[1880-] or [-1955]</p>
+          </blockquote>
+          
+          <p>If either of the dates is uncertain, follow that date with a question mark.</p>
+          
+          <blockquote>
+            <p>[1880?-1990]</p>
+          </blockquote>
+          
+          <p>For years BCE,</p>
+          
+          <blockquote>
+            <p>[500BCE-450BCE]</p>
+          </blockquote>
+          
+          <h2 id="location">Location.</h2>
+          
+          <p><strong>The location of the owner of the artwork at the time of acquisition.</strong></p>
+          
+          <p><em>Is this the main residence of the owner?</em></p>
+          
+          <blockquote>
+            <p>Boston, MA</p>
+          </blockquote>
+          
+          <p>or</p>
+          
+          <blockquote>
+            <p>Paris, France</p>
+          </blockquote>
+          
+          <p>or</p>
+          
+          <blockquote>
+            <p>Highclere Castle, Hampshire, England</p>
+          </blockquote>
+          
+          <p>If the location is uncertain, us a question mark following the last word of the location.</p>
+          
+          <blockquote>
+            <p>Glasgow, Scotland?</p>
+          </blockquote>
+          
+          <p>If the location is in the US, record the city and the state (in zip code two letter abbreviated form, without periods, and with a comma between the city and the state.)</p>
+          
+          <p>If the location is outside of the US, record the city, the provence or state (if required to prevent ambiguous locations), and the country.  Each of these should be seperated by a comma.</p>
+          
+          <p>If the location is in a named, notable building, record that building.</p>
+          
+          <p>If the location has changed names over time, The name of the location is the name of the location at the time of the acquisition.  i.e. Leningrad, not St. Petersburg, if the acquisition took place between 1924 and 1991.</p>
+          
+          <p>Do not record street names or street numbers.  If this is essential for the record this information can be recorded in a footnote.  Never attach specific identifying information of the party the Museum acquired the work from.</p>
+          
+          <h2 id="period-of-ownership">Period of Ownership</h2>
+          
+          <p><strong>A description of the time period the work was owned by the party.</strong></p>
+          
+          <blockquote>
+            <p>before 1996</p>
+          </blockquote>
+          
+          <blockquote>
+            <p>Until some time after the 15th Century</p>
+          </blockquote>
+          
+          <blockquote>
+            <p>1995 until 2006</p>
+          </blockquote>
+          
+          <p>For dates, the preferred forms are</p>
+          
+          <ul>
+            <li>19th century</li>
+            <li>1990s</li>
+            <li>1990</li>
+            <li>October 1990</li>
+            <li>October 11, 1990</li>
+          </ul>
+          
+          <p>Years before 1 CE are specified with BCE.</p>
+          
+          <blockquote>
+            <p>5th century BCE</p>
+          </blockquote>
+          
+          <p>Uncertainty is indicated with a question mark following the last part of the date phrase</p>
+          
+          <blockquote>
+            <p>until October 1885?</p>
+          </blockquote>
+          
+          <p>Years are recorded in Gregorian form, using the October 4, 1582 as the first day of the Gregorian calendar.  For years earlier than 1582, use the proleptic Gregorian Calendar.</p>
+          
+          <p>The year immediately preceding 1 CE is 1 BCE.  There is no year zero.</p>
+          
+          <h2 id="stock-numbers">Stock Numbers</h2>
+          
+          <p><strong>THIS IS DEPRICIATED, AND SHOULD NOT BE USED.  IT WILL BE REMOVED IN THE FINAL DRAFT OF THIS DOCUMENT.</strong></p>
+          
+          <p><strong>A associated stock number for the work in a sale.</strong></p>
+          
+          <p>This handles simple stock numbers within a record.  For any complicated record, or additional notes, or problematic records, use a footnote.</p>
+          
+          <blockquote>
+            <p>stock no. 55512</p>
+          </blockquote>
+          
+          <blockquote>
+            <p>no. 55512</p>
+          </blockquote>
+          
+          <blockquote>
+            <p>lot a111</p>
+          </blockquote>
+          
+          <h4 id="lugt-numbers">Lugt numbers</h4>
+          
+          <p>We are currently treating lugt numbers as a stock number (for expediency.)  The format is</p>
+          
+          <blockquote>
+            <p>(L.12312a)</p>
+          </blockquote>
+          
+          <p>If there is an existing stock number, use one of the other.</p>
+          
+          <h2 id="footnotes">Footnotes</h2>
+          
+          <p><strong>Additional clarifying information, or any information that cannot be structured.</strong></p>
+          
+          <blockquote>
+            <p>[2]</p>
+          </blockquote>
+          
+          <p>Footnotes are indicated by a number contained inside brackets at the end of a record.  It should be the last thing within the record, preceding the completing punctuation.</p>
+          
+          <p>There should only be a single footnote per-owner.  If multiple notes are needed, they can be multiple sentences within the footnote.</p>
+          
+          <p>Footnotes can contain as much text as needed—they are for clarity and people, not computers.</p>
+          
+          <h2 id="closing-punctuation">Closing punctuation</h2>
+          
+          <p>If the artwork is <em>known</em> to be a direct transfer, use a semicolon at the end of the period of ownership.</p>
+          
+          <blockquote>
+            <p>Michel Buble, 1990;</p>
+          </blockquote>
+          
+          <p>If the artwork is <em>not</em> known to be a direct transfer, use a period.</p>
+          
+          <blockquote>
+            <p>Michael Jackson, 1986.</p>
+          </blockquote>
+          
+          <p>If uncertain, assume that the transfer is <strong>not</strong> direct.</p>
+          
+          <h2 id="dealers-and-auction-houses">Dealers and Auction Houses</h2>
+          
+          <p>If the owner is not a primary owner, wrap the entire ownership period in parenthesis.</p>
+          
+          <blockquote>
+            <p>(Galarie Durand-Ruel, Paris, France, 1891);</p>
+          </blockquote>
+          
+          <p>This maintains the historic distinction between primary owners and the auctionners or dealers.</p>
+          
+          <h2 id="notes-at-the-end-of-the-record">Notes at the end of the record.</h2>
+          
+          <p>Once all owners are recorded, footnotes appear.</p>
+          
+          <blockquote>
+            <p>NOTES:  [1] This is a note. [2] This is also a note.</p>
+          </blockquote>
+          
+          <p>the string ' NOTES: ' indicates that the footnote section is beginning.   each note is indicated by a number within brackets followed by the note.  Do not link multiple records to a single footnote—duplicate the information if required.   That way, unintentional changes of one owner do not accidentally propagate to other sections.</p>
+          
+          <p>(due to technical reasons, there is a limit of 99 footnotes per-provenance text.  If this becomes a problem, we can address this in a future version.)</p>
+        </div>
+      </article>
+    </main>
+    <footer class='page_footer container-fluid'>
+      <div class='row'>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>QUICK LINKS</li>
+            <li><a href="http://elysa-demo.museumprovenance.org" target="_blank">Elysa Demo</a></li>
+            <li><a href="pages/team">The Team</a></li>
+            <li><a href="pages/press">Publications & Articles</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>REFERENCES</li>
+            <li><a href="/pages/standard">The Provenance Standard (v.0.1)</a></li>
+            <li><a href="/pages/example_records">Example Records</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>Source Code</li>
+            <li><a href="https://github.com/arttracks/museum_provenance">github.com/arttracks/museum_provenance</a></li>
+            <li><a href="https://github.com/arttracks/elysa">github.com/arttracks/elysa</a></li>
+            <li><a href="https://github.com/arttracks/edtf_test_cases">github.com/arttracks/edtf_test_cases</a></li>
+            <li><a href="https://github.com/arttracks/museum_provenance_website">github.com/arttracks/museum_provenance_website</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>Contact Us</li>
+            <li><a href="http://www.cmoa.org/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div id='footer_logo'>
+            Art Tracks is a project of
+            <br>
+            <img alt='Carnegie Museum of Art' class='img-responsive logo' src='/images/cmoa_logo.png'>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div class='copyright'>
+            One of the four Carnegie Museums of Pittsburgh.
+            <br class='visible-xs-inline'>
+            &copy; Carnegie Museum of Art, Carnegie Institute 2014.
+            <br>
+            This site and its content are released under the
+            <a href='https://creativecommons.org/publicdomain/zero/1.0/'>CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.</a>
+            <br>
+            All logos are the property of their respective owners.  All images of art are  &copy; Carnegie Museum of Art.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-1213892-1', 'auto');
+      ga('send', 'pageview');
+    
+      ga('create', 'UA-65401320-1' , 'auto' , {'name': 'unified'});
+      ga('unified.send', 'pageview');
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

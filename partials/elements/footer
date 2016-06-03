@@ -3,38 +3,31 @@
     <div class='col-sm-3 footer-col'>
       <ul class='list-unstyled'>
         <li class='header'>QUICK LINKS</li>
-        <li>
-          <a href='/pages/standard'>The Provenance Standard</a>
-        </li>
-        <li>
-          <a href='/pages/elysa'>The Elysa Tool</a>
-        </li>
-        <li>
-          <a href='/pages/Team'>The Team</a>
-        </li>
-        <li>
-          <a href='/pages/press'>Publications & Articles</a>
-        </li>
+        <li><a href="http://elysa-demo.museumprovenance.org" target="_blank">Elysa Demo</a></li>
+        <li><a href="pages/team">The Team</a></li>
+        <li><a href="pages/press">Publications & Articles</a></li>
       </ul>
     </div>
     <div class='col-sm-3 footer-col'>
       <ul class='list-unstyled'>
         <li class='header'>REFERENCES</li>
-        <li>TBD</li>
+        <li><a href="/pages/standard">The Provenance Standard (v.0.1)</a></li>
+        <li><a href="/pages/example_records">Example Records</a></li>
       </ul>
     </div>
     <div class='col-sm-3 footer-col'>
       <ul class='list-unstyled'>
-        <li class='header'>GITHUB</li>
-        <li>TBD</li>
+        <li class='header'>Source Code</li>
+        <li><a href="https://github.com/arttracks/museum_provenance">github.com/arttracks/museum_provenance</a></li>
+        <li><a href="https://github.com/arttracks/elysa">github.com/arttracks/elysa</a></li>
+        <li><a href="https://github.com/arttracks/edtf_test_cases">github.com/arttracks/edtf_test_cases</a></li>
+        <li><a href="https://github.com/arttracks/museum_provenance_website">github.com/arttracks/museum_provenance_website</a></li>
       </ul>
     </div>
     <div class='col-sm-3 footer-col'>
       <ul class='list-unstyled'>
-        <li class='header'>CONNECT</li>
-        <li>
-          <a href='http://www.cmoa.org/contact/'>Contact Us</a>
-        </li>
+        <li class='header'>Contact Us</li>
+        <li><a href="http://www.cmoa.org/contact/">Contact Us</a></li>
       </ul>
     </div>
   </div>
@@ -57,7 +50,7 @@
         This site and its content are released under the
         <a href='https://creativecommons.org/publicdomain/zero/1.0/'>CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.</a>
         <br>
-        All logos are the property of their respective owners.
+        All logos are the property of their respective owners.  All images of art are  &copy; Carnegie Museum of Art.
       </div>
     </div>
   </div>

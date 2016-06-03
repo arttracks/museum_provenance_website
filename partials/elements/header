@@ -10,9 +10,7 @@
             <span class='icon-bar'></span>
           </button>
           <a class='navbar-brand logo_text' href='/'>
-            <strong>Art Tracks:</strong>
-            <br class='visible-xs-inline'>
-            Museum Provenance
+            <strong>Art Tracks</strong>
           </a>
           <a class='logo_text_subhead' href='http://www.cmoa.org'>A project of Carnegie Museum of Art</a>
         </div>
@@ -22,10 +20,7 @@
               <a href='/pages/standard'>The Provenance Standard</a>
             </li>
             <li>
-              <a href='/pages/elysa'>Elysa</a>
-            </li>
-            <li>
-              <a href='/pages/Team'>The Team</a>
+              <a href='/pages/team'>The Team</a>
             </li>
             <li>
               <a href='/pages/press'>Publications & Articles</a>

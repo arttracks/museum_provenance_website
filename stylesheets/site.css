@@ -65,28 +65,25 @@ h3 {
 
   h3 {
     text-align: left; } }
-header.page_header {
-  color: #444; }
-  header.page_header a {
-    color: #444;
-    -webkit-font-smoothing: antialiased; }
-    header.page_header a:hover {
-      text-decoration: none; }
-
-.main-header {
+header.page_header a {
+  color: #444;
+  -webkit-font-smoothing: antialiased; }
+  header.page_header a:hover {
+    text-decoration: none; }
+header.page_header .main-header {
   background-color: #FFF; }
-
-.logo_text {
-  font-size: 150%;
+header.page_header .logo_text {
+  font-size: 200%;
   margin-top: 0;
   text-transform: uppercase;
   font-family: "klavika-web", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   padding: 15px 15px 0;
   height: auto; }
-
-.logo_text_subhead {
+header.page_header .logo_text_subhead {
   display: block;
-  padding: 0 15px 15px; }
+  padding: 0 15px 15px;
+  clear: both;
+  color: #888; }
 
 .navbar-default {
   background-color: transparent;
@@ -146,5 +143,9 @@ footer.page_footer {
 
 #hero_image figcaption {
   color: #666;
-  font-size: 80%;
+  font-size: 75%;
   text-align: right; }
+
+.footnotes {
+  color: #777;
+  font-size: 90%; }
