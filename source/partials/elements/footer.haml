@@ -3,30 +3,28 @@
     .col-sm-3.footer-col
       %ul.list-unstyled
         %li.header QUICK LINKS
-        %li
-          %a{href: "/pages/standard"} The Provenance Standard
-        %li
-          %a{href: "/pages/elysa"} The Elysa Tool
-        %li
-          %a{href: "/pages/Team"} The Team
-        %li
-          %a{href: "/pages/press"} Publications & Articles
+        %li= link_to "Elysa Demo", "http://elysa-demo.museumprovenance.org", target: "_blank"
+        %li= link_to "The Team", "pages/team"
+        %li= link_to "Publications & Articles", "pages/press"
 
     .col-sm-3.footer-col
       %ul.list-unstyled
         %li.header REFERENCES
-        %li TBD
+        %li= link_to "The Provenance Standard (v.0.1)", "/pages/standard_v_0_1"
+        %li= link_to "Example Records", "/pages/example_records"
 
     .col-sm-3.footer-col
       %ul.list-unstyled
-        %li.header GITHUB
-        %li TBD
+        %li.header Source Code
+        %li= link_to "github.com/arttracks/museum_provenance", "https://github.com/arttracks/museum_provenance"
+        %li= link_to "github.com/arttracks/elysa", "https://github.com/arttracks/elysa"
+        %li= link_to "github.com/arttracks/edtf_test_cases", "https://github.com/arttracks/edtf_test_cases"
+        %li= link_to "github.com/arttracks/museum_provenance_website", "https://github.com/arttracks/museum_provenance_website"
 
     .col-sm-3.footer-col
       %ul.list-unstyled
-        %li.header CONNECT
-        %li
-          %a{href: 'http://www.cmoa.org/contact/'} Contact Us
+        %li.header Contact Us
+        %li= link_to "Contact Us", 'http://www.cmoa.org/contact/'
 
   .row
     .col-xs-12
