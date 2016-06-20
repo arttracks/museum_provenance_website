@@ -1,5 +1,5 @@
 %footer.page_footer.container-fluid  
-  .row
+  .row.hidden-print
     .col-sm-3.footer-col
       %ul.list-unstyled
         %li.header QUICK LINKS
@@ -31,7 +31,8 @@
       #footer_logo 
         Art Tracks is a project of
         %br
-        %img.img-responsive.logo{src: '/images/cmoa_logo.png', alt: "Carnegie Museum of Art"}
+        %h3.visible-print-block Carnegie Museum of Art
+        %img.img-responsive.logo.hidden-print{src: '/images/cmoa_logo.png', alt: "Carnegie Museum of Art"}
   .row       
     .col-xs-12
       .copyright
