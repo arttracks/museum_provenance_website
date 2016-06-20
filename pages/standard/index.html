@@ -6,6 +6,8 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'>
     
     <title>Museum Provenance | Art Tracks</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="/stylesheets/site.css" rel="stylesheet" />
     <!-- Typekit embed -->
@@ -409,7 +411,7 @@
       </article>
     </main>
     <footer class='page_footer container-fluid'>
-      <div class='row'>
+      <div class='row hidden-print'>
         <div class='col-sm-3 footer-col'>
           <ul class='list-unstyled'>
             <li class='header'>QUICK LINKS</li>
@@ -446,7 +448,8 @@
           <div id='footer_logo'>
             Art Tracks is a project of
             <br>
-            <img alt='Carnegie Museum of Art' class='img-responsive logo' src='/images/cmoa_logo.png'>
+            <h3 class='visible-print-block'>Carnegie Museum of Art</h3>
+            <img alt='Carnegie Museum of Art' class='img-responsive logo hidden-print' src='/images/cmoa_logo.png'>
           </div>
         </div>
       </div>
