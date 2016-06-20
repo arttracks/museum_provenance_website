@@ -16,7 +16,7 @@ nofollow: true
 
 As part of the Art Tracks project and with the support of the National Endowment for the Humanities, the Carnegie Museum of Art is presenting a one-day symposium that will bring together technologists, digital humanities scholars, curators, and other cultural heritage specialists to discuss 21st-century trends in digital event-based provenance for museum objects. 
 
-The [Carnegie Museum of Art](http://www.cmoa.org), in partnership with the [Yale Center for British Art](http://britishart.yale.edu) and the [Freer\|Sackler](https://www.asia.si.edu), has been developing a consensus model for representing the provenance of museum objects using Linked Open Data and the [CIDOC-CRM](http://www.cidoc-crm.org). This standard consists of a Linked Data representation of this information as well as a text-based represntation, based on the [American Alliance of Museums (AAM) suggested provenance text](http://www.aam-us.org/docs/default-source/professional-resources/nepip-recommended-procedures). This symposium will discuss progress on this standard and on other efforts across the field to standardize the digital representation of provenance.  Additionally, we will hear from Freer\|Sackler, the Yale Center for British Art, and the Getty Research Center on their related provenance projects.  
+The [Carnegie Museum of Art](http://www.cmoa.org), in partnership with the [Yale Center for British Art](http://britishart.yale.edu) and the [Freer\|Sackler](https://www.asia.si.edu), has been developing a consensus model for representing the provenance of museum objects using Linked Open Data and the [CIDOC-CRM](http://www.cidoc-crm.org). This standard consists of a Linked Data representation of this information as well as a text-based representation, based on the [American Alliance of Museums (AAM) suggested provenance text](http://www.aam-us.org/docs/default-source/professional-resources/nepip-recommended-procedures). This symposium will discuss progress on this standard and on other efforts across the field to standardize the digital representation of provenance.  Additionally, we will hear from Freer\|Sackler, the Yale Center for British Art, and the Getty Research Center on their related provenance projects.  
 
 This will also be the first public presentation of the proposed mapping of provenance information to the CIDOC-CRM as used in Art Tracks.  As part of this symposium, we will be soliciting community input and feedback on the mappings.
 
@@ -54,7 +54,7 @@ The Art Tracks Team will present on their work as part of Art Tracks, Phase II.
 | 2:00 PM   | Provenance and the CIDOC-CRM     | Emmanuelle Delmas-Glass, Yale Center for British Art
 | 2:30 PM   | Coffee Break                     |
 | 3:00 PM   | Feedback and Community Input     | All Participants
-| 4:30 PM   | Next Steps, Northbrook Initative | Tracey Berg-Fulton, CMOA; the Art Tracks Team
+| 4:30 PM   | Next Steps, Northbrook Initiative | Tracey Berg-Fulton, CMOA; the Art Tracks Team
 | 5:00 PM   | Dinner                           | 
 {: .table.table-hover}
 
