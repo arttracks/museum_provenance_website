@@ -3,7 +3,7 @@ title: "Symposium: 21st-Century Digital Provenance"
 hero_image: "CMA-71-4_1.jpg"
 hero_image_credit: "Nicola di Maestro Antonio D’Ancona, *Madonna and Child Enthroned with SS. Leonard, Jerome, John the Baptist, and Francis* (detail), 1472. Carnegie Museum of Art, Howard A. Noble Fund, 71.4."
 hero_image_url: "http://www.cmoa.org/CollectionDetail.aspx?item=1016222"
-nofollow: true
+nofollow: false
 ---
 
 
@@ -32,7 +32,7 @@ The Art Tracks Team will present on their work as part of Art Tracks, Phase II.
 
 **Louise Lippincott**, Curator of Fine Arts at the Carnegie Museum of Art will discuss the origins of the Art Tracks project and its potential impact on the field of Art History, as well as its impact on her curatorial practice at CMOA.
 
-**Emmanuelle Delmas-Glass**, Collections Data Manager at Yale Center for British Art will present on YCBA's current work on provenance and the CIDOC-CRM.
+**Emmanuelle Delmas-Glass**, Collections Data Manager at [Yale Center for British Art](http://britishart.yale.edu) will present on YCBA's current work on provenance and the CIDOC-CRM.
 
 **Jeffrey Smith**, Assistant Registrar for Collections Information for the [Smithsonian’s Freer\|Sackler](https://www.asia.si.edu), will present on the museum’s provenance work and the  [*Asian Art Provenance Connections Project*](http://www.asia.si.edu/collections/provenance.asp). The Freer\|Sackler is planning a search interface for Asian art provenance linked data, with an initial focus on WWII-era provenance. The site will be designed primarily for researchers, and is intended to scale to include data from other museums with Asian collections. Jeff’s focus is on aligning the processes of research, data entry, and linking of archival and other knowledge resources to create linked data for the research and museum community.
 
