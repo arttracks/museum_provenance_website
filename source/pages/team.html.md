@@ -18,14 +18,14 @@ Art Tracks would not be possible without the dedicated effort of many people thr
 * David Newbury, project manager & lead software developer
 * Katie Reilly, strategic direction
 * Travis Snyder, database management
-* Elizabeth Tufts-Brown, consulting registrar
+* Elizabeth Tufts Brown, consulting registrar
 
 ### For Art Tracks, Phase II, we are joined by:
 
 * [The Yale Center for British Art](http://britishart.yale.edu/)
 * [Freer and Sackler Galleries](http://www.asia.si.edu/)
 
-### The Art Tracks Team would also like to thank:
+### The Art Tracks team would also like to thank:
 
 * [Design for Context](http://www.designforcontext.com)
 * [Digital Scholarship Services, Hillman Library, University of Pittsburgh](http://www.library.pitt.edu/digital-scholarship-services)
