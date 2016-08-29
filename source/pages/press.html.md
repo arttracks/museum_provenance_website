@@ -84,3 +84,8 @@ There have been several articles written about the Art Tracks project over the y
 * [Divine Provenance *(Carnegie Magazine, Fall 2015)*](http://www.carnegiemuseums.org/cmag/feature.php?id=519)
 * [Data of the art: Carnegie Museum computer program collects every detail on its 30,098 artworks *(Pittsburgh Post Gazette, Nov. 8, 2015)*](http://www.post-gazette.com/ae/art-architecture/2015/11/08/Data-of-the-art-Carnegie-Museum-computer-program-Elysa-collects-every-detail-on-its-30-098-artworks/stories/201511080038)
 * [Carnegie Museum of Art Makes its Provenance Accessible and Interactive *(Hyperallergic, September 4, 2015)*](http://hyperallergic.com/234563/carnegie-museum-of-art-makes-its-provenance-accessible-and-interactive/)
+
+
+## Mentions of Art Tracks
+
+* [A Conversation with the Gettys New Semantic Architect](http://blogs.getty.edu/iris/a-conversation-with-the-gettys-new-semantic-architect/?utm_content=bufferfcb59&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
