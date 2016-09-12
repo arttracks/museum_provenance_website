@@ -50,13 +50,15 @@ The Art Tracks Team will present on their work as part of Art Tracks, Phase II.
 | 10:00 AM  | Introduction to Art Tracks       | Louise Lippincott, CMOA; the Art Tracks Team
 | 11:00 AM  | Deep Dive, Art Tracks Technology | David Newbury, CMOA
 | 12:00 PM  | Lunch                            |
-| 1:00 PM   | Asian Art Provenance             | Jeff Smith, Freer\|Sackler  
-| 1:30 PM   | the Getty Provenance Index       | Ruth Cuadra, Getty Research Institute
-| 2:00 PM   | Provenance and the CIDOC-CRM     | Emmanuelle Delmas-Glass, Yale Center for British Art
-| 2:30 PM   | Coffee Break                     |
-| 3:00 PM   | Feedback and Community Input     | All Participants
-| 4:30 PM   | Next Steps, Northbrook Initiative | Tracey Berg-Fulton, CMOA; the Art Tracks Team
-| 5:00 PM   | Dinner                           | 
+| 1:00 PM   | Tour of CMOA's Collection        | Akemi May, CMOA
+| 1:30 PM   | Smithsonian Provenance Research Initiative | Jane Milosch, Smithsonian
+| 1:45 PM   | Asian Art Provenance             | Jeff Smith, Freer\|Sackler  
+| 2:15 PM   | the Getty Provenance Index       | Ruth Cuadra, Getty Research Institute
+| 2:45 PM   | Provenance and the CIDOC-CRM     | Emmanuelle Delmas-Glass, Yale Center for British Art
+| 3:15 PM   | Coffee Break                     |
+| 3:30 PM   | Feedback and Community Input     | Moderated by Alison Langamede, Visual Media Workshop, University of Pittburgh
+| 5:30 PM   | Next Steps, Northbrook Initiative | Tracey Berg-Fulton, CMOA; the Art Tracks Team
+| 6:00 PM   | Dinner                           | Louise Lippincott will host a dinner at her house.
 {: .table.table-hover}
 
 
