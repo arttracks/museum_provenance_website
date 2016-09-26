@@ -1,6 +1,14 @@
 ---
 title: A Yinzer's Guide to Pittsburgh
+hero_image: "1023686.jpg"
+hero_image_credit: "Albert Francis King, *Late Night Snack* (Detail), c. 1900, Carnegie Museum of Art, Purchase; gift of R. K. Mellon Family Foundation, 83.3."
+hero_image_url: "http://www.cmoa.org/CollectionDetail.aspx?item=1023686"
+
+
+
 ---
+
+
 #A Yinzer's Guide to Pittsburgh
 
 Pittsburgh is a city known for its quirks. Bridges, tunnels, traffic patterns not found elsewhere on the planet, and some rather wonderfully odd places and things to eat. So some of us yinzers (Pittsburghers) have put together a handy guide to help you find the true gems of our city. If yinz (yinz = you all, "y'all", you all over there, yies, etc.) need help, just ask!

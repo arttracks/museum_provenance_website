@@ -3,7 +3,6 @@ title: "Symposium: 21st-Century Digital Provenance"
 hero_image: "CMA-71-4_1.jpg"
 hero_image_credit: "Nicola di Maestro Antonio D’Ancona, *Madonna and Child Enthroned with SS. Leonard, Jerome, John the Baptist, and Francis* (detail), 1472. Carnegie Museum of Art, Howard A. Noble Fund, 71.4."
 hero_image_url: "http://www.cmoa.org/CollectionDetail.aspx?item=1016222"
-nofollow: false
 ---
 
 
