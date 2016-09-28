@@ -55,7 +55,7 @@ The Art Tracks Team will present on their work as part of Art Tracks, Phase II.
 | 2:15 PM   | the Getty Provenance Index       | Ruth Cuadra, Getty Research Institute
 | 2:45 PM   | Provenance and the CIDOC-CRM     | Emmanuelle Delmas-Glass, Yale Center for British Art
 | 3:15 PM   | Coffee Break                     |
-| 3:30 PM   | Feedback and Community Input     | Moderated by Alison Langmead, Visual Media Workshop, University of Pittburgh
+| 3:30 PM   | Feedback and Community Input     | Moderated by Alison Langmead, Visual Media Workshop, University of Pittsburgh
 | 5:30 PM   | Next Steps, Northbrook Initiative | Tracey Berg-Fulton, CMOA; the Art Tracks Team
 | 6:00 PM   | Dinner                           | Louise Lippincott will host a dinner at her house.
 {: .table.table-hover}
