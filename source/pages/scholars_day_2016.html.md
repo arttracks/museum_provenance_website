@@ -1,12 +1,12 @@
 ---
-title: "Symposium: 21st-Century Digital Provenance"
+title: "2016 Digital Provenance Symposium"
 hero_image: "CMA-71-4_1.jpg"
 hero_image_credit: "Nicola di Maestro Antonio D’Ancona, *Madonna and Child Enthroned with SS. Leonard, Jerome, John the Baptist, and Francis* (detail), 1472. Carnegie Museum of Art, Howard A. Noble Fund, 71.4."
 hero_image_url: "http://www.cmoa.org/CollectionDetail.aspx?item=1016222"
 ---
 
 
-# Symposium: 21st-Century Digital Provenance
+# 2016 Digital Provenance Symposium
 
 ### Hosted by Carnegie Museum of Art
 
@@ -46,18 +46,19 @@ The Art Tracks Team will present on their work as part of Art Tracks, Phase II.
 |----------:|----------------------------------|-------------------------
 | 9:00 AM   | Coffee and Pastries              |
 | 9:30 AM   | Introduction and Welcome         | Catherine Evans, Chief Curator, Carnegie Museum of Art 
-| 10:00 AM  | Introduction to Art Tracks       | Louise Lippincott, CMOA; the Art Tracks Team
-| 11:00 AM  | Deep Dive, Art Tracks Technology | David Newbury, CMOA
+|  9:45 AM  | Introduction to Art Tracks       | Louise Lippincott, CMOA; the Art Tracks Team
+| 10:30 AM  | Deep Dive, Art Tracks Technology | David Newbury, CMOA
+| 11:30 AM   | Next Steps, Northbrook Initiative | Tracey Berg-Fulton, CMOA; the Art Tracks Team
 | 12:00 PM  | Lunch                            |
-| 1:00 PM   | Tour of CMOA's Collection        | Akemi May, CMOA
+| 1:00 PM   | (Optional) Tour of CMOA's Collection        | Akemi May, CMOA
 | 1:30 PM   | Smithsonian Provenance Research Initiative | Jane Milosch, Smithsonian
 | 1:45 PM   | Asian Art Provenance             | Jeff Smith, Freer\|Sackler  
 | 2:15 PM   | the Getty Provenance Index       | Ruth Cuadra, Getty Research Institute
 | 2:45 PM   | Provenance and the CIDOC-CRM     | Emmanuelle Delmas-Glass, Yale Center for British Art
 | 3:15 PM   | Coffee Break                     |
 | 3:30 PM   | Feedback and Community Input     | Moderated by Alison Langmead, Visual Media Workshop, University of Pittsburgh
-| 5:30 PM   | Next Steps, Northbrook Initiative | Tracey Berg-Fulton, CMOA; the Art Tracks Team
-| 6:00 PM   | Dinner                           | Louise Lippincott will host a dinner at her house.
+| 5:00 PM   | End of Symposium                 | 
+| 6:30 PM   | Dinner                           | Louise Lippincott will host a dinner at her house.
 {: .table.table-hover}
 
 
