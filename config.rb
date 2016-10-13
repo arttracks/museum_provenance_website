@@ -11,10 +11,11 @@ page '/*.txt', layout: false
 
 page '/pages/*.md', layout: "layout"
 
+
 activate :directory_indexes
 
 # With alternative layout
-# page "/path/to/file.html", layout: :otherlayout
+page "/acquisition_methods.html", layout: :toc_layout
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
@@ -35,6 +36,17 @@ end
 helpers do
   def custom_render(source)
     Tilt['markdown'].new {source}.render
+  end
+
+  def generate_toc(file, context)
+    base_md = File.read(file)
+    Middleman::Renderers::MiddlemanKramdownHTML.scope = context
+    doc = Kramdown::Document.new("BEGIN\n\n* replace_me\n{:toc}\n\nEND\n\n#{base_md}")
+    text, warnings = Middleman::Renderers::MiddlemanKramdownHTML.convert(doc.root,doc.options)
+    regex = /BEGIN(.*)END/m
+    toc = text.match(regex)[1]
+    text.gsub!(regex,"") 
+    [toc,text]
   end
 end
 # Methods defined in the helpers block are available in templates

@@ -1,0 +1,19 @@
+- toc, text = generate_toc('data/acquisition_methods.md',self)
+
+- content_for :intro do
+  %h1 Acquisition Method Vocabulary
+
+  %p
+    In order to differentiate the various ways that objects are acquired, we have developed a small thesaurus of terms used to distinguish between methods of acquisition.  These terms are broken into six categories:  Transfers, Originations, Disappearances, Divisions of Custody, Rejoinings of Custody, and Party Transformations.  Each of these contains a structured hierarchy, where each term is more specific than the term above it.
+
+  %p
+    This document contains a human-readable version of this thesauri.  We also have a SKOS version of this thesauri 
+    %a{href: "/acquisition_methods.ttl", target: "_blank"} available on the site.
+
+  %hr
+
+- content_for :toc do
+  = toc
+
+#acq_list
+  = text

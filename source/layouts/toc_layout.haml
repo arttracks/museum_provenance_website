@@ -1,0 +1,9 @@
+= wrap_layout :base_layout do 
+  %article.row#content
+    - if content_for? :intro
+      .col-md-10.col-md-offset-1
+        = yield_content :intro
+    .col-md-6.col-md-offset-1
+      = yield
+    .col-md-3.col-md-offset-1#toc.well
+      = yield_content :toc
