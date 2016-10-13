@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    
+    <title>Museum Provenance | Art Tracks</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <!-- Typekit embed -->
+    <script src="https://use.typekit.net/nuy1eto.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!-- Shim for IE8 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class='acquisition_methods acquisition_methods_index'>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <header class='page_header container-fluid'>
+      <div class='row main-header'>
+        <div class='col-md-10 col-md-offset-1'>
+          <nav class='navbar navbar-default'>
+            <div class='navbar-header'>
+              <button aria-expanded='false' class='navbar-toggle collapsed' data-target='#main-nav' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+              </button>
+              <a class='navbar-brand logo_text' href='/'>
+                <strong>Art Tracks</strong>
+              </a>
+              <a class='logo_text_subhead' href='http://www.cmoa.org'>A project of Carnegie Museum of Art</a>
+            </div>
+            <div class='collapse navbar-collapse' id='main-nav'>
+              <ul class='nav navbar-nav navbar-right'>
+                <li>
+                  <a href='/pages/standard'>The Provenance Standard</a>
+                </li>
+                <li>
+                  <a href='/pages/team'>The Team</a>
+                </li>
+                <li>
+                  <a href='/pages/press'>Publications & Articles</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class='container-fluid main-content'>
+      <article class='row' id='content'>
+        <div class='col-md-10 col-md-offset-1'>
+          <h1>Acquisition Method Vocabulary</h1>
+          <p>
+            In order to differentiate the various ways that objects are acquired, we have developed a small thesaurus of terms used to distinguish between methods of acquisition.  These terms are broken into six categories:  Transfers, Originations, Disappearances, Divisions of Custody, Rejoinings of Custody, and Party Transformations.  Each of these contains a structured hierarchy, where each term is more specific than the term above it.
+          </p>
+          <p>
+            This document contains a human-readable version of this thesauri.  We also have a SKOS version of this thesauri
+            <a href='/acquisition_methods.ttl' target='_blank'>available on the site.</a>
+          </p>
+          <hr>
+        </div>
+        <div class='col-md-6 col-md-offset-1'>
+          <div id='acq_list'>
+            <p></p>
+            
+            <p><img src="/images/acquisition.png" alt="" /></p>
+            
+            <h2 id="transfer-of-an-object">Transfer of an Object</h2>
+            
+            <p>This category of events represents the transfer of ownership of an object 
+            from one party to another.  This includes transfers that involve the
+            exchange of value, such as purchases or exchanges.  This also includes 
+            transfers that do not involve the exchange of value, such as gifts or bequests.
+            This also includes transfers through illegal means, such as theft or looting.</p>
+            
+            <p>By default, all events in a provenance record as assumed to be this type of
+            event.</p>
+            
+            <h3 id="acquisition">Acquisition</h3>
+            
+            <p><strong>This object was acquired by the named party in an unknown fashion.</strong></p>
+            
+            <p><em>This is the default method for acquisitions and is the base type for all acquisitions.It should be used if there are no additional details available.  If there is not an explicit acquisition method mentioned, this will be assumed.</em></p>
+            
+            <p><strong>Preferred Form:</strong> <br />
+            <strong>Other Forms:</strong>    by acquisition; acquired by</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="exchange-of-value">Exchange of Value</h3>
+            
+            <p><strong>This object was obtained in some manner by the named party through an exchange of value.</strong></p>
+            
+            <p><em>This is the base class for all transfers where something of value was exchanged between the acquiring party and the receiving party.  This does not specify any details about the manner of the sale or the type of value exchanged.  In general, if it is assumed that money was exchanged, use ‘purchased by’</em></p>
+            
+            <p><strong>Preferred Form:</strong> through an exchange of value, to</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993] through an exchange of value, to, St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="assignment">Assignment</h3>
+            
+            <p><strong>Ownership is assigned to the named party due to a previous agreement.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> assigned to</p>
+            
+            <p><strong>Example:</strong>       assigned to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="sale">Sale</h3>
+            
+            <p><strong>This object was purchased by the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> purchased by<br />
+            <strong>Other Forms:</strong>    bought by; by purchase; purchased; sold to</p>
+            
+            <p><strong>Example:</strong>       purchased by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="private-sale">Private Sale</h3>
+            
+            <p><strong>This object was purchased by the named party from another party in a sale that was not publicly advertised and/or available.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> privately purchased by<br />
+            <strong>Other Forms:</strong>    sold privately</p>
+            
+            <p><strong>Example:</strong>       privately purchased by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="purchase-at-auction">Purchase at Auction</h3>
+            
+            <p><strong>This object was purchased by the named party at auction.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> purchased at auction by<br />
+            <strong>Other Forms:</strong>    by auction, to; by auction; sold at auction; sold at auction to; bought at sale by</p>
+            
+            <p><strong>Example:</strong>       purchased at auction by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="exchange">Exchange</h3>
+            
+            <p><strong>This object was acquired by the named party, but something of value was exchanged for the object instead of money.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> by exchange, to<br />
+            <strong>Other Forms:</strong>    by exchange; acquired by exchange</p>
+            
+            <p><strong>Example:</strong>       by exchange, to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="forced-sale">Forced Sale</h3>
+            
+            <p><strong>This object was purchased by the named party using involuntary pressure on the seller.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> forced sale, to<br />
+            <strong>Other Forms:</strong>    by forced sale</p>
+            
+            <p><strong>Example:</strong>       forced sale, to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="assumption-of-ownership">Assumption of Ownership</h3>
+            
+            <p><strong>This object was acquired by the named party in some way that did not involve an exchange of value.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> ownership assumed by</p>
+            
+            <p><strong>Example:</strong>       ownership assumed by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="appropriation">Appropriation</h3>
+            
+            <p><strong>This object was acquired by the named party without the consent of and without an exchange of value to the previous owner.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> appropriated by</p>
+            
+            <p><strong>Example:</strong>       appropriated by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="confiscation">Confiscation</h3>
+            
+            <p><strong>This object was legally appropriated by an entity without the consent of the previous owner.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> confiscated by</p>
+            
+            <p><strong>Example:</strong>       confiscated by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="theft">Theft</h3>
+            
+            <p><strong>This object was stolen by the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> stolen by<br />
+            <strong>Other Forms:</strong>    by theft; via theft</p>
+            
+            <p><strong>Example:</strong>       stolen by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="looting">Looting</h3>
+            
+            <p><strong>This object was looted during a conflict by the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> looted by</p>
+            
+            <p><strong>Example:</strong>       looted by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="restitution">Restitution</h3>
+            
+            <p><strong>This object was returned to the named party after having previously been illegally taken from them.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> restituted to<br />
+            <strong>Other Forms:</strong>    by restitution; via restitution</p>
+            
+            <p><strong>Example:</strong>       restituted to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="conversion">Conversion</h3>
+            
+            <p><strong>This object was acquired by the named party through some form of eminent domain.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> appropriated by<br />
+            <strong>Other Forms:</strong>    by appropriation; by conversion, to; by conversion</p>
+            
+            <p><strong>Example:</strong>       appropriated by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="gift">Gift</h3>
+            
+            <p><strong>This object was given to the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> gift to<br />
+            <strong>Other Forms:</strong>    gifted to; donated to; given to</p>
+            
+            <p><strong>Example:</strong>       gift to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="prize">Prize</h3>
+            
+            <p><strong>This object was won be the named party as part of a competition.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> won by<br />
+            <strong>Other Forms:</strong>    awarded to</p>
+            
+            <p><strong>Example:</strong>       won by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="transfer">Transfer</h3>
+            
+            <p><strong>This object was given to the named party from another part or element of the same named party.</strong></p>
+            
+            <p><em>This is typically used for objects transferring from one department to another within an organization.  It is NOT used for moments when an organization changes legal form;  see <code>by consolidation</code> for that.  This is also often used when an item is transferring from some form of partial ownership to being completely owned by one of the partial owners.</em></p>
+            
+            <p><strong>Preferred Form:</strong> transferred to<br />
+            <strong>Other Forms:</strong>    by transfer</p>
+            
+            <p><strong>Example:</strong>       transferred to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="bequest">Bequest</h3>
+            
+            <p><strong>This object was given to the named party through a will or other means following the death of the previous owner.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> bequest, to<br />
+            <strong>Other Forms:</strong>    by bequest; bequeathed to</p>
+            
+            <p><strong>Example:</strong>       bequest, to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="by-descent">By Descent</h3>
+            
+            <p><strong>This object was given to the named party following the death of a previous owner who was their family member.</strong></p>
+            
+            <p><em>Note that this does not include the automatic transfer to a spouse following post WWII property law.   See ‘via marriage’ for those instances.</em></p>
+            
+            <p><strong>Preferred Form:</strong> by descent to<br />
+            <strong>Other Forms:</strong>    by descent; by inheritance to; by inheritance</p>
+            
+            <p><strong>Example:</strong>       by descent to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <hr />
+            <p><img src="/images/instantiation.png" alt="" /></p>
+            
+            <h2 id="origination-of-an-object">Origination of an Object.</h2>
+            
+            <p>This category of events describe the beginning of an object.  This may
+            represent the creation of an object or the moment in which the object began
+            to be perceived as an art object.  This relates to the specific physical or 
+            conceptual object being described; for instance, this could describe the a 
+            specific print of a photograph OR the conceptual entity of the photo, 
+            but should not be used to record both in a single provenance record.</p>
+            
+            <p>All objects are assumed to have be originated. Origination MUST be the first
+            event in the provenance of an object.  If a record does not have an origination
+            event as the first event in the provenance, a generic origination event with
+            no date and an unknown party is assumed.</p>
+            
+            <h3 id="origination">Origination</h3>
+            
+            <p><strong>This object was brought into existence in some manner.</strong></p>
+            
+            <p><em>This is the most general form of origination.  It does not specify any particulars about the origination event, only that it existed and some party had agency in then origination.</em></p>
+            
+            <p><strong>Preferred Form:</strong> gave origin by</p>
+            
+            <p><strong>Example:</strong>       gave origin by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="creation">Creation</h3>
+            
+            <p><strong>This object was created by the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> created by</p>
+            
+            <p><strong>Example:</strong>       created by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="found">Found</h3>
+            
+            <p><strong>This object was found by the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> found by<br />
+            <strong>Other Forms:</strong>    discovered by</p>
+            
+            <p><strong>Example:</strong>       found by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="recognization">Recognization</h3>
+            
+            <p><strong>This object was recognized as an artistic object by the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> recognized by</p>
+            
+            <p><strong>Example:</strong>       recognized by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="discovery">Discovery</h3>
+            
+            <p><strong>This object was discovered by the named party as part of an archaeological event.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> discovered by</p>
+            
+            <p><strong>Example:</strong>       discovered by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="illegal-extraction">Illegal Extraction</h3>
+            
+            <p><strong>his object was extracted without legal permission by the named party as part of an archaeological event.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> illegally extracted by</p>
+            
+            <p><strong>Example:</strong>       illegally extracted by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="excavation">Excavation</h3>
+            
+            <p><strong>This object was uncovered by the named party as part of an archaeological event.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> excavated by</p>
+            
+            <p><strong>Example:</strong>       excavated by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="reclearing">Reclearing</h3>
+            
+            <p><strong>This object was recleared by the named party as part of an archaeological event.</strong></p>
+            
+            <p><em>This indicates and object that had been prviously been excavated, by not removed at that time.</em></p>
+            
+            <p><strong>Preferred Form:</strong> recleared by</p>
+            
+            <p><strong>Example:</strong>       recleared by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="field-collection">Field Collection</h3>
+            
+            <p><strong>This object was extracted by the named party as part of an archaeological event.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> field collected by<br />
+            <strong>Other Forms:</strong>    by field collection; extracted by; by field collection</p>
+            
+            <p><strong>Example:</strong>       field collected by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="conceptualization">Conceptualization</h3>
+            
+            <p><strong>This abstract object was conceived by the named party as an artistic object.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> conceptualized by</p>
+            
+            <p><strong>Example:</strong>       conceptualized by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="fabrication">Fabrication</h3>
+            
+            <p><strong>A physical instance of a conceptual object was created by the named party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> fabricated by<br />
+            <strong>Other Forms:</strong>    published by; printed by</p>
+            
+            <p><strong>Example:</strong>       fabricated by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="commission">Commission</h3>
+            
+            <p><strong>This object was commissioned by the named party.</strong></p>
+            
+            <p><em>Note that this does not assume the named party received custody of the object. Typically, this would be followed by an agent who would be the fabricator, and then by a delivery of the object to the named party.</em></p>
+            
+            <p><strong>Preferred Form:</strong> commissioned by<br />
+            <strong>Other Forms:</strong>    by commission; by commission, to; painted for; created for</p>
+            
+            <p><strong>Example:</strong>       commissioned by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <hr />
+            <p><img src="/images/disappearance.png" alt="" /></p>
+            
+            <h2 id="disappearance-of-an-object">Disappearance of an Object.</h2>
+            
+            <p>This category of events indicates that the object being described no longer
+            exists to the best knowledge of the author.  Objects which have been 
+            destroyed fall into this category, as do objects which have been lost
+            permanently.  This can also be used to describe the completion of objects 
+            that are only intended to exist for a finite length of time.</p>
+            
+            <p>By default, objects have not disappeared.  If an object is believed to no 
+            longer exist, this SHOULD be recorded.</p>
+            
+            <p>If recorded, this MUST be the final entry in a provenance record. There MUST
+            be at most one disappearance event for an object.</p>
+            
+            <p>There MAY be an party recorded with these events.</p>
+            
+            <h3 id="disappearance">Disappearance</h3>
+            
+            <p><strong>This object was removed from existence in some manner.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> disappeared by</p>
+            
+            <p><strong>Example:</strong>       disappeared by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="physical-destruction">Physical Destruction</h3>
+            
+            <p><strong>This object was permanently destroyed.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> destroyed by</p>
+            
+            <p><strong>Example:</strong>       destroyed by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="expiration">Expiration</h3>
+            
+            <p><strong>This object came to its intended temporal ending.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> completed by</p>
+            
+            <p><strong>Example:</strong>       completed by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="loss">Loss</h3>
+            
+            <p><strong>This object has been lost and is not believed to be findable.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> lost by</p>
+            
+            <p><strong>Example:</strong>       lost by Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <hr />
+            <p><img src="/images/divided_custody.png" alt="" /></p>
+            
+            <h2 id="division-of-custody--ownership">Division of Custody &amp; Ownership</h2>
+            
+            <p>This category of events describe moments where custody, but NOT ownership 
+            of an object is given to a party.  Typical examples of this include
+            consignment or loans.</p>
+            
+            <h3 id="in-possession">In Possession</h3>
+            
+            <p><strong>The named party has temporary custody, but not ownership of this object.</strong></p>
+            
+            <p><em>By default, ownership is assumed in this model.  This is used to explicitly indicate that the named party does NOT have ownership of the object.</em></p>
+            
+            <p><strong>Preferred Form:</strong> in custody of<br />
+            <strong>Other Forms:</strong>    with; posessed by</p>
+            
+            <p><strong>Example:</strong>       in custody of Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="on-deposit">On Deposit</h3>
+            
+            <p><strong>The named party has been given temporary custody without permission to sell or exhibit the object.</strong></p>
+            
+            <p><em>This differs from <code>on loan</code> chiefly when the temporary custody is done for the owner’s benefit, not the temporary custodian’s benefit.</em></p>
+            
+            <p><strong>Preferred Form:</strong> on deposit to<br />
+            <strong>Other Forms:</strong>    on deposit; on deposit at</p>
+            
+            <p><strong>Example:</strong>       on deposit to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="consigned">Consigned</h3>
+            
+            <p><strong>The named party has been given custody with the intent for them to sell the object.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> consigned to<br />
+            <strong>Other Forms:</strong>    In sale at; sale; sold by; sold at; sale,</p>
+            
+            <p><strong>Example:</strong>       consigned to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="on-loan">On Loan</h3>
+            
+            <p><strong>The named party has been given temporary custody for use, but without permission to sell the object.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> loaned to<br />
+            <strong>Other Forms:</strong>    on loan to; on permanent loan to; on long term at; on longterm loan at; on extended loan at</p>
+            
+            <p><strong>Example:</strong>       loaned to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="on-tour">On Tour</h3>
+            
+            <p><strong>The named party has been granted custody as part of a series of loans.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> toured to</p>
+            
+            <p><strong>Example:</strong>       toured to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <hr />
+            <p><img src="/images/rejoining.png" alt="" /></p>
+            
+            <h2 id="rejoining-of-custody--ownership">Rejoining of Custody &amp; Ownership</h2>
+            
+            <p>This category of events describe moments where the custody and ownership of
+            an object are reunited in a single party.  This implies that the party named 
+            in the immediately preceding event did not have ownership of the object, 
+            and thus MUST either follow a custody division event or a break in knowledge.</p>
+            
+            <p>The party described is the receiving party, and they MUST already have 
+            been named as the owning entity.</p>
+            
+            <h3 id="delivered">Delivered</h3>
+            
+            <p><strong>This object was delivered to the owning party by a party which had temporary custody.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> delivered to</p>
+            
+            <p><strong>Example:</strong>       delivered to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="returned">Returned</h3>
+            
+            <p><strong>This object was returned to the owning party from a party which had temporary custody.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> returned to</p>
+            
+            <p><strong>Example:</strong>       returned to Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <hr />
+            <p><img src="/images/transformation.png" alt="" /></p>
+            
+            <h2 id="transformation-of-party">Transformation of Party</h2>
+            
+            <p>This category of changes are used to handle instances in which an party
+            becomes another party through some sort of legal change.  This is explicitly
+            not for name changes; in that case the party remains the same party.  However,
+            this is used to record changes via marriages, corporate mergers, or widowhood.</p>
+            
+            <h3 id="party-transformation">Party Transformation</h3>
+            
+            <p><strong>One legal party has transformed itself another legal party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> who became</p>
+            
+            <p><strong>Example:</strong>       who became Vincent Price [1911-1993], St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="marriage">Marriage</h3>
+            
+            <p><strong>One individual has married another, and ownership is now shared.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> via marriage</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993] via marriage, St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="widowhood">Widowhood</h3>
+            
+            <p><strong>One individual in a marriage has died, and ownership is assumed by the surviving party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> via widowhood</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993] via widowhood, St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="divorce">Divorce</h3>
+            
+            <p><strong>A marriage has been legally dissolved, and ownership has been assumed by one of the married parties.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> via divorce</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993] via divorce, St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="death">Death</h3>
+            
+            <p><strong>This is used for the transfer to an estate from a party who has died.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> via death<br />
+            <strong>Other Forms:</strong>    via his death; via her death; via their death</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993] via death, St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="partial-gift">Partial Gift</h3>
+            
+            <p><strong>This is used for the transfer from one party to a legal entity that includes both themselves and another party.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> via partial gift<br />
+            <strong>Other Forms:</strong>    partial gift to</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993] via partial gift, St. Louis, Missouri, July 1969.</p>
+            
+            <h3 id="organizational-consolidation">Organizational Consolidation</h3>
+            
+            <p><strong>One organization has joined with another organization, and the combined organization has assumed ownership.</strong></p>
+            
+            <p><strong>Preferred Form:</strong> via consolidation</p>
+            
+            <p><strong>Example:</strong>       Vincent Price [1911-1993] via consolidation, St. Louis, Missouri, July 1969.</p>
+            
+            <hr />
+          </div>
+        </div>
+        <div class='col-md-3 col-md-offset-1 well' id='toc'>
+          </p>
+          
+          <ul id="markdown-toc">
+            <li><a href="#transfer-of-an-object" id="markdown-toc-transfer-of-an-object">Transfer of an Object</a>    <ul>
+                <li><a href="#acquisition" id="markdown-toc-acquisition">Acquisition</a></li>
+                <li><a href="#exchange-of-value" id="markdown-toc-exchange-of-value">Exchange of Value</a></li>
+                <li><a href="#assignment" id="markdown-toc-assignment">Assignment</a></li>
+                <li><a href="#sale" id="markdown-toc-sale">Sale</a></li>
+                <li><a href="#private-sale" id="markdown-toc-private-sale">Private Sale</a></li>
+                <li><a href="#purchase-at-auction" id="markdown-toc-purchase-at-auction">Purchase at Auction</a></li>
+                <li><a href="#exchange" id="markdown-toc-exchange">Exchange</a></li>
+                <li><a href="#forced-sale" id="markdown-toc-forced-sale">Forced Sale</a></li>
+                <li><a href="#assumption-of-ownership" id="markdown-toc-assumption-of-ownership">Assumption of Ownership</a></li>
+                <li><a href="#appropriation" id="markdown-toc-appropriation">Appropriation</a></li>
+                <li><a href="#confiscation" id="markdown-toc-confiscation">Confiscation</a></li>
+                <li><a href="#theft" id="markdown-toc-theft">Theft</a></li>
+                <li><a href="#looting" id="markdown-toc-looting">Looting</a></li>
+                <li><a href="#restitution" id="markdown-toc-restitution">Restitution</a></li>
+                <li><a href="#conversion" id="markdown-toc-conversion">Conversion</a></li>
+                <li><a href="#gift" id="markdown-toc-gift">Gift</a></li>
+                <li><a href="#prize" id="markdown-toc-prize">Prize</a></li>
+                <li><a href="#transfer" id="markdown-toc-transfer">Transfer</a></li>
+                <li><a href="#bequest" id="markdown-toc-bequest">Bequest</a></li>
+                <li><a href="#by-descent" id="markdown-toc-by-descent">By Descent</a></li>
+              </ul>
+            </li>
+            <li><a href="#origination-of-an-object" id="markdown-toc-origination-of-an-object">Origination of an Object.</a>    <ul>
+                <li><a href="#origination" id="markdown-toc-origination">Origination</a></li>
+                <li><a href="#creation" id="markdown-toc-creation">Creation</a></li>
+                <li><a href="#found" id="markdown-toc-found">Found</a></li>
+                <li><a href="#recognization" id="markdown-toc-recognization">Recognization</a></li>
+                <li><a href="#discovery" id="markdown-toc-discovery">Discovery</a></li>
+                <li><a href="#illegal-extraction" id="markdown-toc-illegal-extraction">Illegal Extraction</a></li>
+                <li><a href="#excavation" id="markdown-toc-excavation">Excavation</a></li>
+                <li><a href="#reclearing" id="markdown-toc-reclearing">Reclearing</a></li>
+                <li><a href="#field-collection" id="markdown-toc-field-collection">Field Collection</a></li>
+                <li><a href="#conceptualization" id="markdown-toc-conceptualization">Conceptualization</a></li>
+                <li><a href="#fabrication" id="markdown-toc-fabrication">Fabrication</a></li>
+                <li><a href="#commission" id="markdown-toc-commission">Commission</a></li>
+              </ul>
+            </li>
+            <li><a href="#disappearance-of-an-object" id="markdown-toc-disappearance-of-an-object">Disappearance of an Object.</a>    <ul>
+                <li><a href="#disappearance" id="markdown-toc-disappearance">Disappearance</a></li>
+                <li><a href="#physical-destruction" id="markdown-toc-physical-destruction">Physical Destruction</a></li>
+                <li><a href="#expiration" id="markdown-toc-expiration">Expiration</a></li>
+                <li><a href="#loss" id="markdown-toc-loss">Loss</a></li>
+              </ul>
+            </li>
+            <li><a href="#division-of-custody--ownership" id="markdown-toc-division-of-custody--ownership">Division of Custody &amp; Ownership</a>    <ul>
+                <li><a href="#in-possession" id="markdown-toc-in-possession">In Possession</a></li>
+                <li><a href="#on-deposit" id="markdown-toc-on-deposit">On Deposit</a></li>
+                <li><a href="#consigned" id="markdown-toc-consigned">Consigned</a></li>
+                <li><a href="#on-loan" id="markdown-toc-on-loan">On Loan</a></li>
+                <li><a href="#on-tour" id="markdown-toc-on-tour">On Tour</a></li>
+              </ul>
+            </li>
+            <li><a href="#rejoining-of-custody--ownership" id="markdown-toc-rejoining-of-custody--ownership">Rejoining of Custody &amp; Ownership</a>    <ul>
+                <li><a href="#delivered" id="markdown-toc-delivered">Delivered</a></li>
+                <li><a href="#returned" id="markdown-toc-returned">Returned</a></li>
+              </ul>
+            </li>
+            <li><a href="#transformation-of-party" id="markdown-toc-transformation-of-party">Transformation of Party</a>    <ul>
+                <li><a href="#party-transformation" id="markdown-toc-party-transformation">Party Transformation</a></li>
+                <li><a href="#marriage" id="markdown-toc-marriage">Marriage</a></li>
+                <li><a href="#widowhood" id="markdown-toc-widowhood">Widowhood</a></li>
+                <li><a href="#divorce" id="markdown-toc-divorce">Divorce</a></li>
+                <li><a href="#death" id="markdown-toc-death">Death</a></li>
+                <li><a href="#partial-gift" id="markdown-toc-partial-gift">Partial Gift</a></li>
+                <li><a href="#organizational-consolidation" id="markdown-toc-organizational-consolidation">Organizational Consolidation</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p>
+        </div>
+      </article>
+    </main>
+    <footer class='page_footer container-fluid'>
+      <div class='row hidden-print'>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>QUICK LINKS</li>
+            <li><a href="http://elysa-demo.museumprovenance.org" target="_blank">Elysa Demo</a></li>
+            <li><a href="pages/team">The Team</a></li>
+            <li><a href="pages/press">Publications & Articles</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>REFERENCES</li>
+            <li><a href="/pages/standard">The Provenance Standard (v.0.1)</a></li>
+            <li><a href="/acquisition_methods">Acquisition Methods</a></li>
+            <li><a href="/pages/example_records">Example Records</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>Source Code</li>
+            <li><a href="https://github.com/arttracks/museum_provenance">github.com/arttracks/museum_provenance</a></li>
+            <li><a href="https://github.com/arttracks/elysa">github.com/arttracks/elysa</a></li>
+            <!-- %li= link_to "github.com/arttracks/edtf_test_cases", "https://github.com/arttracks/edtf_test_cases" -->
+            <li><a href="https://github.com/arttracks/museum_provenance_website">github.com/arttracks/museum_provenance_website</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>Contact Us</li>
+            <li><a href="http://www.cmoa.org/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div id='footer_logo'>
+            Art Tracks is a project of
+            <br>
+            <h3 class='visible-print-block'>Carnegie Museum of Art</h3>
+            <img alt='Carnegie Museum of Art' class='img-responsive logo hidden-print' src='/images/cmoa_logo.png'>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div class='copyright'>
+            One of the four Carnegie Museums of Pittsburgh.
+            <br class='visible-xs-inline'>
+            &copy; Carnegie Museum of Art, Carnegie Institute 2014.
+            <br>
+            This site and its content are released under the
+            <a href='https://creativecommons.org/publicdomain/zero/1.0/'>CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.</a>
+            <br>
+            All logos are the property of their respective owners.  All images of art are  &copy; Carnegie Museum of Art.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-1213892-9', 'auto');
+      ga('send', 'pageview');
+    
+      ga('create', 'UA-65401320-1' , 'auto' , {'name': 'unified'});
+      ga('unified.send', 'pageview');
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
