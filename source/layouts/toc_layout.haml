@@ -5,5 +5,6 @@
         = yield_content :intro
     .col-md-6.col-md-offset-1
       = yield
-    .col-md-3.col-md-offset-1#toc.well
+    %sidebar.col-md-3.col-md-offset-1#toc.well.hidden-print
+      %h3 Table of Contents
       = yield_content :toc

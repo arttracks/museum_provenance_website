@@ -1,0 +1,17 @@
+---
+title: "CMOA Digital Provenance Standard, v. 0.2"
+---
+
+- toc, text = generate_toc('data/standard_v2.md',self)
+
+- content_for :intro do
+  %h1 The CMOA Digital Provenance Standard.
+  %h5 Draft Version 0.2<br>Published Oct 14, 2016<br>This supersedes <a href='/pages/standard_v1'>version 0.1, published March 14, 2015.</a>.
+
+  %hr
+
+- content_for :toc do
+  = toc
+
+#standard
+  = find_and_preserve(text)

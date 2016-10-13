@@ -15,7 +15,7 @@ page '/pages/*.md', layout: "layout"
 activate :directory_indexes
 
 # With alternative layout
-page "/acquisition_methods.html", layout: :toc_layout
+page "reference/*", layout: :toc_layout
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
@@ -32,6 +32,7 @@ end
 # Helpers
 ###
 
+activate :syntax
 
 helpers do
   def custom_render(source)

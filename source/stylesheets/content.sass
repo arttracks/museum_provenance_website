@@ -27,12 +27,26 @@ h4
   img
     width: 100%
 
-#acq_list 
+#acq_list, #standard
   img
     max-width: 100%
   h3
     margin-top: 2em
     font-size: 140%
+  .footnotes
+    border-top: 1px solid #777
+    margin-top: 2em
+    padding-top: 1em
+  pre
+    margin-bottom: 2.5em
+
+  blockquote
+    font-size: 14px
+    color: #999
+    font-weight: 500
+    line-height: 16px
+  p > code
+    white-space: nowrap
 #toc
   font-size: 90%
   line-height: 130%
@@ -41,6 +55,17 @@ h4
     &:hover
       text-decoration: underline
   ul
-    padding-bottom: 1em
+    padding-left: 15px
     li
       list-style: none
+#toc > ul > li > ul
+  padding-bottom: 1em
+
+
+.date_table 
+  font-size: 90%
+  background-color: #FAFAFA
+  th
+    background-color: #EEE
+  th:first-child
+    width: 20%

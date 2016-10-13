@@ -14,9 +14,12 @@ Once we have converted our provenance information into structured data, we can a
 
 
 
-## Publications
+## Reference Materials
 
-The [**CMOA Provenance Standard**](pages/standard) is a strict superset of the AAM provenance standard, designed to resolve ambiguities and provide guidance and machine-readability. A draft version has been published.  Examples of [records written using this style](/pages/example_records) are available.
+The [**CMOA Provenance Standard**](/reference/standard) is a strict superset of the AAM provenance standard, designed to resolve ambiguities and provide guidance and machine-readability. A draft version (v. 0.2) has been published.  Examples of [records written using the CMOA style](/pages/example_records) are available.
+
+A thesauri of [**Acqusition Methods**](/reference/acquisition_methods) has been created to help explain and define the various ways that works of art can change hands.  There is also [a SKOS version](/acquisition_methods.ttl) of this vocabulary available.
+
 
 
 ## Software Tools
@@ -25,6 +28,7 @@ The [**museum_provenance**](https://github.com/cmoa/museum_provenance) library i
 
 The [**Elysa**](https://github.com/cmoa/elysa) tool is a user interface designed for museum professionals.  It assists with verifying, cleaning, and modifying provenance records. 
 
+---
 
 *Initial funding for **Art Tracks** was provided in part by a generous grant by the [Institute of Museum and Library Services](http://www.imls.gov).  Funding for Phase II has been provided by the [National Endowment for the Humanities](http://www.neh.gov/) with additional funding provided by a grant from the [Kress Foundation](http://www.kressfoundation.org).*
 {: .funding }
