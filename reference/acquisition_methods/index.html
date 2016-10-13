@@ -5,7 +5,7 @@
     <meta content='IE=edge' http-equiv='X-UA-Compatible'>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
     
-    <title>Museum Provenance | Art Tracks</title>
+    <title>Acquisition Method Vocabulary | Art Tracks</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -19,7 +19,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class='acquisition_methods acquisition_methods_index'>
+  <body class='reference reference_acquisition_methods reference_acquisition_methods_index'>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
     <header class='page_header container-fluid'>
       <div class='row main-header'>
@@ -40,7 +40,7 @@
             <div class='collapse navbar-collapse' id='main-nav'>
               <ul class='nav navbar-nav navbar-right'>
                 <li>
-                  <a href='/pages/standard'>The Provenance Standard</a>
+                  <a href='/reference/standard'>The Provenance Standard</a>
                 </li>
                 <li>
                   <a href='/pages/team'>The Team</a>
@@ -597,7 +597,8 @@
             <hr />
           </div>
         </div>
-        <div class='col-md-3 col-md-offset-1 well' id='toc'>
+        <sidebar class='col-md-3 col-md-offset-1 well hidden-print' id='toc'>
+          <h3>Table of Contents</h3>
           </p>
           
           <ul id="markdown-toc">
@@ -672,7 +673,7 @@
           </ul>
           
           <p>
-        </div>
+        </sidebar>
       </article>
     </main>
     <footer class='page_footer container-fluid'>
@@ -681,15 +682,16 @@
           <ul class='list-unstyled'>
             <li class='header'>QUICK LINKS</li>
             <li><a href="http://elysa-demo.museumprovenance.org" target="_blank">Elysa Demo</a></li>
-            <li><a href="pages/team">The Team</a></li>
+            <li><a href="pages/team">The Art Tracks Team</a></li>
             <li><a href="pages/press">Publications & Articles</a></li>
           </ul>
         </div>
         <div class='col-sm-3 footer-col'>
           <ul class='list-unstyled'>
-            <li class='header'>REFERENCES</li>
-            <li><a href="/pages/standard">The Provenance Standard (v.0.1)</a></li>
-            <li><a href="/acquisition_methods">Acquisition Methods</a></li>
+            <li class='header'>REFERENCE MATERIAL</li>
+            <li><a href="/reference/standard">The Provenance Standard (v.0.2)</a></li>
+            <li><a href="/reference/acquisition_methods">Acquisition Methods</a></li>
+            <li><a href="/reference/dates">Date Parsing for Provenance</a></li>
             <li><a href="/pages/example_records">Example Records</a></li>
           </ul>
         </div>

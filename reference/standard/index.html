@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    
+    <title>CMOA Digital Provenance Standard, v. 0.2 | Art Tracks</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="/stylesheets/site.css" rel="stylesheet" />
+    <!-- Typekit embed -->
+    <script src="https://use.typekit.net/nuy1eto.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!-- Shim for IE8 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class='reference reference_standard reference_standard_index'>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <header class='page_header container-fluid'>
+      <div class='row main-header'>
+        <div class='col-md-10 col-md-offset-1'>
+          <nav class='navbar navbar-default'>
+            <div class='navbar-header'>
+              <button aria-expanded='false' class='navbar-toggle collapsed' data-target='#main-nav' data-toggle='collapse' type='button'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+              </button>
+              <a class='navbar-brand logo_text' href='/'>
+                <strong>Art Tracks</strong>
+              </a>
+              <a class='logo_text_subhead' href='http://www.cmoa.org'>A project of Carnegie Museum of Art</a>
+            </div>
+            <div class='collapse navbar-collapse' id='main-nav'>
+              <ul class='nav navbar-nav navbar-right'>
+                <li>
+                  <a href='/reference/standard'>The Provenance Standard</a>
+                </li>
+                <li>
+                  <a href='/pages/team'>The Team</a>
+                </li>
+                <li>
+                  <a href='/pages/press'>Publications & Articles</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class='container-fluid main-content'>
+      <article class='row' id='content'>
+        <div class='col-md-10 col-md-offset-1'>
+          <h1>The CMOA Digital Provenance Standard.</h1>
+          <h5>Draft Version 0.2<br>Published Oct 14, 2016<br>This supersedes <a href='/pages/standard_v1'>version 0.1, published March 14, 2015.</a>.</h5>
+          <hr>
+        </div>
+        <div class='col-md-6 col-md-offset-1'>
+          <div id='standard'>
+            <p></p>
+            
+            <h2 id="introduction">Introduction</h2>
+            
+            <p>At the Carnegie Museum of Art, as with many institutions, provenance is recorded in a text field within our collections management system.  As such, there is no machine-readable structure, and it is difficult or impossible to automatically analyze the data contained within.</p>
+            
+            <p>One of the major goals of the Art Tracks project has been to generate a digital model for storing and capturing the data within provenance in a machine-readable format. This document contains our best understanding of that model, along with supporting information and examples.</p>
+            
+            <p>There are three expressions of this standard.  One is as a Linked Open Data, as an RDF model using the CIDOC-CRM.  The second is as an abstract data model in JSON. The third is a textual model that functions as an extension of the AAM recommended provenance text.  All three expressions are compatible and can be converted to each other.</p>
+            
+            <h2 id="background">Background</h2>
+            
+            <p>Currently, there are two two models for provenance within the cultural heritage space.</p>
+            
+            <p>We have the standard, textual provenance document which has been used for the past hundred-or-so years. This document describes a complex network of relationships between parties, events, locations, and objects in a concise, semi-structured format.  It contains a remarkable wealth of detail about the history of the object, but it relies heavily on the expertise of the reader to be understandable. There are a large number of implicit statements, events, and entities that would need to be extracted from the data to represent the recorded knowledge of provenance in a machine-readable form.</p>
+            
+            <p>We also have the CIDOC-CRM, a robust conceptual model for event-based modeling of the history of a object, built upon 20+ years of research into the practices of cultural heritage.  CIDOC-CRM is an extremely comprehensive model capable of representing knowledge at a level of detail that far surpasses what we currently capture in our provenance documents.  It is explicitly designed to support event-based knowledge like that which makes up provenance. However, the complexity of the CRM requires a deep understanding of both the field and the potential uses of the knowledge to appropriately choose a level of detail for modeling provenance.</p>
+            
+            <p>The software in use at cultural institutions currently work with the textual provenance.  They contain a transcription of the text, but not a digital model of the <em>meaning</em> of the text.  However, the tools museums use to record their collections information are robust, well-understood, and deeply embedded into daily museum practice.</p>
+            
+            <p>To our knowledge, there are no tools currently in production that support the CIDOC-CRM model of provenance.  There are several research projects underway to transition from the document-based structure of existing collections management towards an event-based model, but they are more than five years away from broad adoption in the museum community.</p>
+            
+            <p>The Art Tracks project is designed to ease the transition between these two models. It is explicitly an interim solution, but one that is designed to work within our existing infrastructure, while preparing us to migrate to a semantic, event-based model in the future.</p>
+            
+            <h2 id="design-principles">Design Principles</h2>
+            
+            <p>As we have been developing the linked data model for this standard, we have had three guiding principles:</p>
+            
+            <p>The first is to maintain the integrity of the CIDOC-CRM, and to use the predicates and classes that it (and its extensions) provide whenever possible.</p>
+            
+            <p>The second is to consider that the major purpose of modeling provenance as structured data is to enhance the usability of the provenance—particularly the searchability of the provenance.  At every step, we would like to enhance the ability of a user to locate specific events in the history of an object, and we aim to provide as many hooks into the provenance as possible.</p>
+            
+            <p>Third, we aim to capture completely the information that makes up the written provenance text.  Provenance data is extremely concise, and to omit any word from the provenance is to omit a detail that the provenance researcher deemed important.</p>
+            
+            <p>The structure and model presented below is our best attempt to create a standard that accomplishes our mission while abiding to the principles as closely as possible.</p>
+            
+            <h2 id="levels-of-provenance">Levels of Provenance</h2>
+            
+            <p>Linked data is still a relatively new concept in museums, and very few museums are prepared to embrace it to the level that fully modeling provenance in all its specificity entails.  To ‘shorten the on-ramp’, we have defined four levels for the digital encoding of provenance.  These levels have been designed to function as strict supersets—each level can also function as each level below. Each level provides a more complete graph of information, additional search abilities, and a more nuanced understanding of the provided provenance text.</p>
+            
+            <h3 id="level-one">Level One</h3>
+            
+            <p>At this level, we describe a provenance text in which the individual entities contained within the document are not modeled in any fashion. This is a standard model for provenance within an institution where the provenance is merely a single text object, and no additional work is done to model the provenance.</p>
+            
+            <p>This model is made up of two core CRM entities: a <code>E31 Document</code> and an <code>E7 Activity</code>.  The document is the provenance text itself, and the activity records the ongoing activities of the owners of an object that involve transfers of ownership and custody.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>  Both of these entities are assigned a <code>E55 Type</code> of <a href="http://www.getty.edu/vow/AATFullDisplay?find=&amp;logic=AND&amp;note=&amp;subjectid=300055863"><code>aat:300055863</code></a>, which is the AAT term for “provenance”.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+            
+            <h3 id="level-two">Level Two</h3>
+            
+            <p>This level assumes that there is a software entity that is capable of 
+            processing the provenance text, but that it doesn’t have any special 
+            knowledge of provenance in particular.  Named Entity Recognition or simple
+            string matching against authority files would be examples of this level
+            of processing.</p>
+            
+            <h3 id="level-three">Level Three</h3>
+            
+            <h3 id="level-four-unimplemented">Level Four <em>(unimplemented)</em></h3>
+            
+            <h2 id="textual-provenance-standard">Textual Provenance Standard</h2>
+            
+            <h3 id="general-format">General format</h3>
+            
+            <blockquote>
+              <p>Possibly purchased at auction by John Doe? [1910?-1995?], Boise, ID, for his daughter Sally Moe, Baroness of Leeds [1940-], Pittsburgh, PA?, at “Sale of Pleasant Goods”, Christie’s, in London, England, sometime after November 5, 1975 (stock no. 10, for $1000) [1][a][b].</p>
+            
+              <p>Notes:</p>
+            
+              <p>[1].  Purchased on the occasion of her birthday.</p>
+            
+              <p>Authorities:</p>
+            
+              <p>John Doe:                      see http://vocabs.getty.com/authorities/123455<br />
+            Boise, ID:                     see http://geonames.com/123456<br />
+            Sally Moe, Baroness of Leeds:  see http://viaf.org/123456<br />
+            Pittsburgh, PA:                see http://tgn.getty.org/123456<br />
+            London, England:               see http://geonames.com/555121<br />
+            Christie’s:                    no record found.</p>
+            
+              <p>Citations:</p>
+            
+              <p>[a]. See Arnau, F. (1961). The art of the faker: Three thousand years of deception. Boston: Little, Brown. http://www.worldcat.org/oclc/873114<br />
+            [b].  See curatorial file, Carnegie Museum of Art.</p>
+            </blockquote>
+            
+            <h3 id="capitalization-of-the-first-letter">Capitalization of the first letter</h3>
+            
+            <p>If this is the first record or the previous record ends in a period, capitalize the first word.  Otherwise, use standard capitalization (if it’s a proper name, capitalize, if it’s not, don’t.)</p>
+            
+            <h3 id="period-certainty">Period Certainty</h3>
+            
+            <p>If the entire period is uncertain, <code>Possibly</code>, otherwise nothing.</p>
+            
+            <h3 id="acquisition-method">Acquisition Method</h3>
+            
+            <p><strong>The method of acquisition or transfer.</strong></p>
+            
+            <p>Controlled vocabulary— <a href="/acquisition_methods">see the term list</a>.</p>
+            
+            <p>Usually the acquisition method goes before the name.  For grammatical sanity, it will occasionally go after the name &amp; life dates, though this is discouraged.</p>
+            
+            <h3 id="name">Name</h3>
+            
+            <p><strong>The name of the party.</strong></p>
+            
+            <blockquote>
+              <p>Claude Monet</p>
+            </blockquote>
+            
+            <p>If there are clauses, like, “wife of previous” or “the artist”, they follow the name.  These clauses are a semi controlled vocabulary—it can be extended as needed.  Please see the <em>attached list</em> for current exceptions and vocabulary.</p>
+            
+            <blockquote>
+              <p>Michel Monet, son of the artist</p>
+            </blockquote>
+            
+            <p>not</p>
+            
+            <blockquote>
+              <p>Son of the artist, Michel Monet</p>
+            </blockquote>
+            
+            <p>If the name is uncertain, follow the name with a question mark.</p>
+            
+            <blockquote>
+              <p>George Strait?</p>
+            </blockquote>
+            
+            <p>not</p>
+            
+            <blockquote>
+              <p>Possibly George Strait</p>
+            </blockquote>
+            
+            <p>This prevents confusion around the question of which aspect is certain of uncertain, the party or the entire record.</p>
+            
+            <p>If the party’s name has multiple initials, use a space between them.</p>
+            
+            <blockquote>
+              <p>J. J. Abrams</p>
+            </blockquote>
+            
+            <p>not</p>
+            
+            <blockquote>
+              <p>J.J. Abrams</p>
+            </blockquote>
+            
+            <p>For estate and other sales, the party is the gallery or auction house that hosted the sale, not the name of the sale. The name of the sale should be contained within a footnote if known.</p>
+            
+            <p>If the gallery is not known, the party is “The estate of Claude Monet” or something similar.</p>
+            
+            <p>If the part is not known, use <strong>Unknown party</strong> or <strong>Unknown collector</strong> or something similar.  Don’t leave it blank.</p>
+            
+            <p>If the party is a marriage, and the work is co-owned by the parties of the marriage, the party should be:</p>
+            
+            <blockquote>
+              <p>Mr &amp; Mrs. Marshall Fields III</p>
+            </blockquote>
+            
+            <p>For marriages, we are recording only the name of the man as per tradition.  If the wife’s name is known, attach it in a footnote.</p>
+            
+            <p>This is the marriage of these two people, not either of these people themselves.  Any dates or locations should refer to the marriage, and a transfer of provenance should occur if a marriage ends in either death or divorce.</p>
+            
+            <h3 id="birth-and-death-dates">Birth and Death dates</h3>
+            
+            <p><strong>Birth and Death dates of a party. 
+            Years of operation if an organization.<br />
+            Years of marriage if a marriage.</strong></p>
+            
+            <p>Birth and death dates are years, enclosed within braces and separated by a dash.</p>
+            
+            <blockquote>
+              <p>[1880-1955]</p>
+            </blockquote>
+            
+            <p>If the date is unknown, or the party is still alive, exclude that date, but leave the dash.</p>
+            
+            <blockquote>
+              <p>[1880-] or [-1955]</p>
+            </blockquote>
+            
+            <p>If either of the dates is uncertain, follow that date with a question mark.</p>
+            
+            <blockquote>
+              <p>[1880?-1990]</p>
+            </blockquote>
+            
+            <p>For years BCE,</p>
+            
+            <blockquote>
+              <p>[500BCE-450BCE]</p>
+            </blockquote>
+            
+            <h3 id="location">Location</h3>
+            
+            <p><strong>The location of the owner of the artwork at the time of acquisition.</strong></p>
+            
+            <p><em>Is this the main residence of the owner?</em></p>
+            
+            <blockquote>
+              <p>Boston, MA</p>
+            </blockquote>
+            
+            <p>or</p>
+            
+            <blockquote>
+              <p>Paris, France</p>
+            </blockquote>
+            
+            <p>or</p>
+            
+            <blockquote>
+              <p>Highclere Castle, Hampshire, England</p>
+            </blockquote>
+            
+            <p>If the location is uncertain, us a question mark following the last word of the location.</p>
+            
+            <blockquote>
+              <p>Glasgow, Scotland?</p>
+            </blockquote>
+            
+            <p>If the location is in the US, record the city and the state (in zip code two letter abbreviated form, without periods, and with a comma between the city and the state.)</p>
+            
+            <p>If the location is outside of the US, record the city, the provence or state (if required to prevent ambiguous locations), and the country.  Each of these should be seperated by a comma.</p>
+            
+            <p>If the location is in a named, notable building, record that building.</p>
+            
+            <p>If the location has changed names over time, The name of the location is the name of the location at the time of the acquisition.  i.e. Leningrad, not St. Petersburg, if the acquisition took place between 1924 and 1991.</p>
+            
+            <p>Do not record street names or street numbers.  If this is essential for the record this information can be recorded in a footnote.  Never attach specific identifying information of the party the Museum acquired the work from.</p>
+            
+            <h3 id="period-of-ownership">Period of Ownership</h3>
+            
+            <p><strong>A description of the time period the work was owned by the party.</strong></p>
+            
+            <blockquote>
+              <p>before 1996</p>
+            </blockquote>
+            
+            <blockquote>
+              <p>Until some time after the 15th Century</p>
+            </blockquote>
+            
+            <blockquote>
+              <p>1995 until 2006</p>
+            </blockquote>
+            
+            <p>For dates, the preferred forms are:</p>
+            
+            <ul>
+              <li>19th century</li>
+              <li>1990s</li>
+              <li>1990</li>
+              <li>October 1990</li>
+              <li>October 11, 1990</li>
+            </ul>
+            
+            <p>Years before 1 CE are specified with BCE.</p>
+            
+            <blockquote>
+              <p>5th century BCE</p>
+            </blockquote>
+            
+            <p>Uncertainty is indicated with a question mark following the last part of the date phrase</p>
+            
+            <blockquote>
+              <p>until October 1885?</p>
+            </blockquote>
+            
+            <p>Years are recorded in Gregorian form, using the October 4, 1582 as the first day of the Gregorian calendar.  For years earlier than 1582, use the proleptic Gregorian Calendar.</p>
+            
+            <p>The year immediately preceding 1 CE is 1 BCE.  There is no year zero.</p>
+            
+            <h3 id="stock-numbers">Stock Numbers</h3>
+            
+            <p><strong>A associated stock number for the work in a sale.</strong></p>
+            
+            <p>This handles simple stock numbers within a record.  For any complicated record, or additional notes, or problematic records, use a footnote.</p>
+            
+            <blockquote>
+              <p>stock no. 55512</p>
+            </blockquote>
+            
+            <blockquote>
+              <p>no. 55512</p>
+            </blockquote>
+            
+            <blockquote>
+              <p>lot a111</p>
+            </blockquote>
+            
+            <h3 id="footnotes">Footnotes</h3>
+            
+            <p><strong>Additional clarifying information, or any information that cannot be structured.</strong></p>
+            
+            <blockquote>
+              <p>[2]</p>
+            </blockquote>
+            
+            <p>Footnotes are indicated by a number contained inside brackets at the end of a record.  It should be the last thing within the record, preceding the completing punctuation.</p>
+            
+            <p>There should only be a single footnote per-owner.  If multiple notes are needed, they can be multiple sentences within the footnote.</p>
+            
+            <p>Footnotes can contain as much text as needed—they are for clarity and people, not computers.</p>
+            
+            <h3 id="closing-punctuation">Closing Punctuation</h3>
+            
+            <p>If the artwork is <em>known</em> to be a direct transfer, use a semicolon at the end of the period of ownership.</p>
+            
+            <blockquote>
+              <p>Michel Buble, 1990;</p>
+            </blockquote>
+            
+            <p>If the artwork is <em>not</em> known to be a direct transfer, use a period.</p>
+            
+            <blockquote>
+              <p>Michael Jackson, 1986.</p>
+            </blockquote>
+            
+            <p>If uncertain, assume that the transfer is <strong>not</strong> direct.</p>
+            
+            <h3 id="dealers-and-auction-houses">Dealers and Auction Houses</h3>
+            
+            <p>If the owner is not a primary owner, wrap the entire ownership period in parenthesis.</p>
+            
+            <blockquote>
+              <p>(Galarie Durand-Ruel, Paris, France, 1891);</p>
+            </blockquote>
+            
+            <p>This maintains the historic distinction between primary owners and the auctionners or dealers.</p>
+            
+            <h3 id="notes-at-the-end-of-the-record">Notes at the end of the record.</h3>
+            
+            <p>Once all owners are recorded, footnotes appear.</p>
+            
+            <blockquote>
+              <p>NOTES:  [1] This is a note. [2] This is also a note.</p>
+            </blockquote>
+            
+            <p>the string ‘ NOTES: ‘ indicates that the footnote section is beginning.   each note is indicated by a number within brackets followed by the note.  Do not link multiple records to a single footnote—duplicate the information if required.   That way, unintentional changes of one owner do not accidentally propagate to other sections.</p>
+            
+            <p>(due to technical reasons, there is a limit of 99 footnotes per-provenance text.  If this becomes a problem, we can address this in a future version.)</p>
+            
+            <hr />
+            
+            <h2 id="appendices">Appendices</h2>
+            
+            <h3 id="i-why-text">I. Why Text?</h3>
+            
+            <p>Given the underlying structure of the provenance information, we considered several possibilities for the canonical reference for this information.  To do so, we developed the following set of guidelines for describing our goals:</p>
+            
+            <ol>
+              <li>Provenance must be represented as unambiguous structured data.</li>
+              <li>There should only be a single source of truth for provenance data.</li>
+              <li>The provenance information should follow industry standards when available.</li>
+              <li>Provenance should balance simplicity, capturing nuance, and unambiguity.</li>
+              <li>Information should not be discarded.</li>
+              <li>The system should be designed for usability.</li>
+              <li>The system should be as simple as possible.</li>
+              <li>The system should be technologically feasible.</li>
+              <li>Not all information can be unambiguous.</li>
+              <li>Not all information can be structured.</li>
+              <li>The current industry standard for provenance records is a paragraph of standardized text.</li>
+            </ol>
+            
+            <p>Designing for usability, as well as designing for a single source of truth, means that there exists a conflict between the traditional provenance record as a block of text and the requirements of structured data.</p>
+            
+            <p>One option was to ignore the requirement for a single source of truth, and have both structured and unstructured representations of provenance data.  While technically the easiest option, it is very easy for the two sources of data to diverge, and there would be no method to detect such divergences.  Enforcing data constraints with policy tends to be less than optimal, and without a detection mechanism, experience has shown that one of the two systems will become untrusted.</p>
+            
+            <p>Given that two versions of the data is non-optimal, the second option of converting provenance to structured data and treating the textual record as a produced artifact of the data is tempting.  This would allow the data to be the single source of truth.  This is also a technically appealing solution, since it allows the use of existing technological tools (such as relational databases) and simple data modeling constraints.</p>
+            
+            <p>The major issues with this option revolve around usability.  Given that most museums do not have structured provenance data, in order for the structured data to be the single source of truth, all existing records would have to be converted immediately, or a transition period would have to be enforced where either no new information is added, or all information is added to both places.  Additionally, extensive training would have to be provided to all staff on how to read and write provenance information.</p>
+            
+            <p>Another constraint is the flexibility of existing Collection Management Systems.  Either the CMS has to be extended to handle the new data, or there has to be a new tool added and maintained to store and handle the data.</p>
+            
+            <p>Given these issues, the decision was made that the primary description of the structured data should remain the paragraph of provenance text.  This has the benefit of working with existing tooling, and also allowing a gradual conversion of records without problems; however, this presents its own issues.  The largest of these issues is that text is not traditionally an excellent source of unambiguity, and the structure of either English or the AAM guidelines is not sufficient to guarantee parsability.</p>
+            
+            <h3 id="ii-example-provenance-as-text">II. Example Provenance as Text</h3>
+            
+            <p>This is the provenance for <a href="https://www.asia.si.edu/collections/edan/object.php?q=fsg_F1937.41">The New Testament</a>, owned by the Freer|Sackler.  The provenance of this object has been reformatted to use the CMOA Provenance Standard.  <strong>This is being used as a demonstration of syntax and should not be considered an authoritative record.</strong></p>
+            
+            <blockquote>
+              <p>Mrs. Serunian [1][a]; by inheritance to Dr. H. H. Serunian, her son, Worcester, Massachusetts [b];  purchased by Freer Gallery of Art, 1937.</p>
+            
+              <p>Notes:</p>
+            
+              <p>[1]. Excerpt from the Curatorial Remark 1 in the object record: “Dr. Serunian inherited the book from his mother who was an Assyrian and brought it with her to this country. Dr. Serunian says that the covers were removed from the book to make it more easily portable when his mother’s relatives escaped from Kurdistan to Persia in 1916.”</p>
+            
+              <p>Authorities:</p>
+            
+              <p>Mrs. Serunian:            see http://asia.si.edu/collections/freer/consitutents/id/14160<br />
+            Dr. H. H. Serunian:       see http://asia.si.edu/collections/freer/consitutents/id/14161<br />
+            Worcester, Massachusetts: see http://www.geonames.org/4956199<br />
+            Freer Gallery of Art:     see http://asia.si.edu/collections/freer/consitutents/id/3326</p>
+            
+              <p>Citations:</p>
+            
+              <p>[a]. Curatorial Remark 1 in the object record.<br />
+            [b]. Curatorial Remark 1 in the object record.</p>
+            </blockquote>
+            
+            <h3 id="iii-example-provenance-as-rdf">III. Example Provenance as RDF</h3>
+            
+            <p>This is an example of the same provenance record as above, but represented as RDF in turtle.  Each of the levels represented here build on each other.  For conciseness, we do not duplicate information at each level; assume all of the statements at previous levels exist at the following ones, as well.</p>
+            
+            <hr />
+            
+            <h4 id="level-one-1">Level One</h4>
+            
+            <pre class="highlight turtle"><code><span class="c1"># The Art object (only the essential bits for this)</span><span class="w">&#x000A;</span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E22_Man-Made_Object</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"The New Testament"</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P52_has_current_owner</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">3326</span><span class="p">.</span><span class="w">&#x000A;&#x000A;</span><span class="c1"># The Owner is:</span><span class="w">&#x000A;</span><span class="nn">freer_constituent:</span><span class="mi">3326</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E40_Legal_Body</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"Freer Gallery of Art"</span><span class="p">.</span><span class="w">&#x000A;</span></code></pre>
+            <p>The provenance text itself is documented as a <code>E31 Document</code>.  This is the traditional, written text of a provenance statement, typically written following a museum’s standard form.</p>
+            
+            <pre class="highlight turtle"><code><span class="w">&#x000A;</span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E31_Document</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="c1"># We use `P2 has type` to distinguish this text from any other</span><span class="w">&#x000A;  </span><span class="c1"># document about the object.</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">aat:</span><span class="mi">300055863</span><span class="p">;</span><span class="w">  </span><span class="c1"># "provenance"</span><span class="w">&#x000A;&#x000A;  </span><span class="c1"># We use `P70 documents` to refer to period covered by the documented history</span><span class="w">&#x000A;  </span><span class="c1"># of ownership for the object.  This is what the content of provenance is.</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P70_documents</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance_period</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="c1"># We use `P129 is about` to refer to the object that is the subject of the</span><span class="w">&#x000A;  </span><span class="c1"># the provenance.  This differs from `P70 documents` in that it is what the</span><span class="w">&#x000A;  </span><span class="c1"># provenance refers to, not what it is documenting.  </span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P129_is_about</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="c1"># We use `P3_has_note` to document the actual text of the provenance.</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P3_has_note</span><span class="w"> </span><span class="s">"Mrs. Serunian [1][a]; by inheritance to Dr. H. H. Serunian, her son, Worcester, Massachusetts [b]; purchased by Freer Gallery of Art, 1937.\n\nNotes:\n\n[1]. Excerpt from the Curatorial Remark 1 in the object record: “Dr. Serunian inherited the book from his mother who was an Assyrian and brought it with her to this country. Dr. Serunian says that the covers were removed from the book to make it more easily portable when his mother's relatives escaped from Kurdistan to Persia in 1916.” \n\nAuthorities:\n\nMrs. Serunian:            see ...\nDr. H. H. Serunian:       see ...\nWorcester, Massachusetts: see ...\nFreer Gallery of Art:     see ...\n\nCitations:\n\n[a]. Curatorial Remark 1 in the object record.\n[b]. Curatorial Remark 1 in the object record."</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  &#x000A;  </span><span class="c1"># We have a `rdfs:label` to provide information to a human user who wants to </span><span class="w">&#x000A;  </span><span class="c1"># understand what this entity represents. </span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"The provenance of Freer|Sackler object 10173, 'The New Testament'."</span><span class="w"> </span><span class="p">.</span><span class="w">&#x000A;&#x000A;</span></code></pre>
+            <p>The complete sequence of events that make up the provenance are documented as a <code>E7 Activity</code>. This event contains all of the events in the object’s history that relate to the ownership and custody of the object. It stretches from the moment the work is considered to exist until either the current moment or the documented distruction of the work. At this level there are no individually modeled acquisition events.</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance_period</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E7_Activity</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">aat:</span><span class="mi">300055863</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1"># Provenance</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P16_used_specific_object</span><span class="w"> </span><span class="nn">freer:</span><span class="mi">10173</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P4_has_time-span</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance_period_timespan</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"The transfers of ownership and custody of Freer|Sackler object 10173, 'The New Testament'."</span><span class="p">.</span><span class="w">&#x000A;&#x000A;</span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance_period_timespan</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E52_Time-Span</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P82_at_some_time_within</span><span class="w"> </span><span class="s">"1213/open"</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">dct:</span><span class="n">conformsTo</span><span class="w"> </span><span class="nl">&lt;https://www.loc.gov/standards/datetime/&gt;</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"1213 until the current day"</span><span class="p">.</span><span class="w">&#x000A;</span></code></pre>
+            <hr />
+            
+            <h4 id="level-two-1">Level Two</h4>
+            
+            <p>To the document, we add references to all locations mentioned.  At this level, we can’t distinguish between the various types of locations mentioned, so we associate them all with the document.</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E31_Document</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P67_refers_to</span><span class="w"> </span><span class="nn">geonames:</span><span class="mi">4956199</span><span class="p">.</span><span class="w">               </span><span class="c1">#Worcester, Massachusetts</span><span class="w">&#x000A;</span></code></pre>
+            <p>We also associate the parties and URLs found within the document with the overall provenance period.</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance_period</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E7_Activity</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P11_had_participant</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="p">;</span><span class="w">  </span><span class="c1">#Mrs. Serunian</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P11_had_participant</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="p">;</span><span class="w">  </span><span class="c1">#Dr. H. H. Serunian</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P11_had_participant</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">3326</span><span class="p">;</span><span class="w">   </span><span class="c1">#Freer Gallery of Art</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P70i_is_documented_in</span><span class="w"> </span><span class="nl">&lt;http://asia.si.edu/collections/curatorialnotes/id/10173&gt;</span><span class="w">&#x000A;</span></code></pre>
+            <hr />
+            
+            <h4 id="level-three-1">Level Three</h4>
+            
+            <pre class="highlight turtle"><code><span class="nn">freer_object:</span><span class="mi">10173</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E22_Man-Made_Object</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P50_has_current_keeper</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">3326</span><span class="p">;</span><span class="w">&#x000A;</span></code></pre>
+            <p>The List of people involved are:</p>
+            
+            <pre class="highlight turtle"><code><span class="c1"># The Current Owner</span><span class="w">&#x000A;</span><span class="nn">freer_constituent:</span><span class="mi">3326</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E40_Legal_Body</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P53_has_former_or_current_location</span><span class="w"> </span><span class="nn">geonames:</span><span class="mi">4140980</span><span class="p">.</span><span class="w"> </span><span class="c1">#Washington, DC.</span><span class="w">&#x000A;&#x000A;</span><span class="c1"># The first owner:</span><span class="w">&#x000A;</span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E21_Person</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"Mrs. Serunian"</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P53_has_former_or_current_location</span><span class="w"> </span><span class="nn">geonames:</span><span class="mi">4956199</span><span class="p">.</span><span class="w"> </span><span class="c1">#Worcester, Massachusetts</span><span class="w">&#x000A;&#x000A;</span><span class="c1"># The second owner:</span><span class="w">&#x000A;</span><span class="nn">freer_constituent:</span><span class="mi">4274</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E21_Person</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"Dr. H. H. Serunian"</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">ulan:</span><span class="mi">1511</span><span class="n">_child_of</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P53_has_former_or_current_location</span><span class="w"> </span><span class="nn">geonames:</span><span class="mi">4956199</span><span class="p">.</span><span class="w"> </span><span class="c1">#Worcester, Massachusetts</span><span class="w">&#x000A;</span></code></pre>
+            <p>This is the timeline of significant events in the history of this manuscript</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_provenance_period</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E4_Period</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P9_consists_of</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_initial_ownership</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P9_consists_of</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov-1</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P9_consists_of</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov-2</span><span class="w"> </span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P9_consists_of</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov-3</span><span class="w"> </span><span class="p">.</span><span class="w">&#x000A;</span></code></pre>
+            <p>The initial ownership by an unknown person.</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">freer_object:</span><span class="mi">10173</span><span class="n">_initial_ownership</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E8_Acquisition,</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E10_Transfer_of_Custody</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">mprov_acq:</span><span class="n">creation</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P30_custody_transferred_of</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">.</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P24_acquired_title_of</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">.</span><span class="w">&#x000A;</span></code></pre>
+            <p>When Ms. Serunian. acquired the manuscript</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_1</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E8_Acquisition,</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E10_Transfer_of_Custody</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">mprov_acq:</span><span class="n">acquisition</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P30_custody_transferred_of</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P24_acquired_title_of</span><span class="w">    </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P22_transferred_title_to</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P29_custody_received_by</span><span class="w">  </span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P3_has_note</span><span class="w"> </span><span class="s">"Mrs. Serunian"</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P129i_is_subject_of</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_1_footnote</span><span class="p">.</span><span class="w">&#x000A;&#x000A;</span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_1_footnote</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E33_Linguistic_Object</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">aat:</span><span class="mi">300265639</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P3_has_note</span><span class="w"> </span><span class="s">"Excerpt from the Curatorial Remark 1 in the object record: “Dr. Serunian inherited the book from his mother who was an Assyrian and brought it with her to this country. Dr. Serunian says that the covers were removed from the book to make it more easily portable when his mother's relatives escaped from Kurdistan to Persia in 1916.” See Curatorial Remark 1 in the object record."</span><span class="p">.</span><span class="w">&#x000A;</span></code></pre>
+            <p>When Ms. Serunian. acquired the manuscript</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_2</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E8_Acquisition,</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E10_Transfer_of_Custody</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">mprov_acq:</span><span class="n">bequest</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P120i_occurs_after</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_1</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P30_custody_transferred_of</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P24_acquired_title_of</span><span class="w">    </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P23_transferred_title_from</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P28_custody_surrendered_by</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">14160</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P22_transferred_title_to</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">4274</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P29_custody_received_by</span><span class="w">  </span><span class="nn">freer_constituent:</span><span class="mi">4274</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P3_has_note</span><span class="w"> </span><span class="s">" To 1937\nDr. H. H. Serunian, Worcester, Massachusetts; by inheritance from his mother, Mrs. Serunian."</span><span class="p">.</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P129i_is_subject_of</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_2_footnote</span><span class="p">.</span><span class="w">&#x000A;&#x000A;</span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_2_footnote</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E33_Linguistic_Object</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">aat:</span><span class="mi">300265639</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P3_has_note</span><span class="w"> </span><span class="s">"Curatorial Remark 1 in the object record."</span><span class="p">.</span><span class="w">&#x000A;</span></code></pre>
+            <p>The third transfer:</p>
+            
+            <pre class="highlight turtle"><code><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_3</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E8_Acquisition,</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E10_Transfer_of_Custody</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">mprov_acq:</span><span class="n">purchase</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P120i_occurs_after</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_2</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P30_custody_transferred_of</span><span class="w"> </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P24_acquired_title_of</span><span class="w">    </span><span class="nn">freer_object:</span><span class="mi">10173</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P23_transferred_title_from</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">4274</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P28_custody_surrendered_by</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">4274</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P22_transferred_title_to</span><span class="w"> </span><span class="nn">freer_constituent:</span><span class="mi">3326</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P29_custody_received_by</span><span class="w">  </span><span class="nn">freer_constituent:</span><span class="mi">3326</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P3_has_note</span><span class="w"> </span><span class="s">"From 1937\nFreer Gallery of Art, purchased from Dr. H. H. Serunian, Worcester, Massachusetts."</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P129i_is_subject_of</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_3_footnote</span><span class="p">;</span><span class="w">&#x000A;&#x000A;  </span><span class="nn">crm:</span><span class="n">P4_has_time-span</span><span class="w"> </span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_3_timespan</span><span class="p">.</span><span class="w">&#x000A;  &#x000A;</span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_3_timespan</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E52_Time-Span</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P82a_begin_of_the_begin</span><span class="w"> </span><span class="s">"1937"</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"From 1937"</span><span class="p">.</span><span class="w">&#x000A;&#x000A;</span><span class="nn">_:</span><span class="mi">10173</span><span class="n">_prov_3_footnote</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">crm:</span><span class="n">E33_Linguistic_Object</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P2_has_type</span><span class="w"> </span><span class="nn">aat:</span><span class="mi">300265639</span><span class="p">;</span><span class="w">&#x000A;  </span><span class="nn">crm:</span><span class="n">P3_has_note</span><span class="w"> </span><span class="s">"See note 2."</span><span class="p">.</span><span class="w">&#x000A;</span></code></pre>
+            <h3 id="iv-example-provenance-as-json">IV. Example Provenance as JSON</h3>
+            
+            <h4 id="level-one-2">Level One</h4>
+            
+            <pre class="highlight json"><code><span class="err">provenance</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;  </span><span class="err">object_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://asia.si.edu/collections/freer/object/10173"</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="err">provenance_text</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mrs. Serunian [1][a]; by inheritance to Dr. H. H. Serunian, her son, Worcester, Massachusetts [b]; purchased by Freer Gallery of Art, 1937.</span><span class="se">\n\n</span><span class="s2">Notes:</span><span class="se">\n\n</span><span class="s2">[1]. Excerpt from the Curatorial Remark 1 in the object record: “Dr. Serunian inherited the book from his mother who was an Assyrian and brought it with her to this country. Dr. Serunian says that the covers were removed from the book to make it more easily portable when his mother's relatives escaped from Kurdistan to Persia in 1916.” </span><span class="se">\n\n</span><span class="s2">Authorities:</span><span class="se">\n\n</span><span class="s2">Mrs. Serunian:            see ...</span><span class="se">\n</span><span class="s2">Dr. H. H. Serunian:       see ...</span><span class="se">\n</span><span class="s2">Worcester, Massachusetts: see ...</span><span class="se">\n</span><span class="s2">Freer Gallery of Art:     see ...</span><span class="se">\n\n</span><span class="s2">Citations:</span><span class="se">\n\n</span><span class="s2">[a]. Curatorial Remark 1 in the object record.</span><span class="se">\n</span><span class="s2">[b]. Curatorial Remark 1 in the object record."</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="err">existence_interval</span><span class="p">:</span><span class="w"> </span><span class="s2">"1213/open"</span><span class="w">&#x000A;</span><span class="p">}</span><span class="w">&#x000A;&#x000A;</span></code></pre>
+            <h4 id="level-two-2">Level Two</h4>
+            
+            <pre class="highlight json"><code><span class="err">provenance</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;  </span><span class="err">object_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://asia.si.edu/collections/freer/object/10173"</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="err">provenance_text</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mrs. Serunian [1][a]; by inheritance to Dr. H. H. Serunian, her son, Worcester, Massachusetts [b]; purchased by Freer Gallery of Art, 1937.</span><span class="se">\n\n</span><span class="s2">Notes:</span><span class="se">\n\n</span><span class="s2">[1]. Excerpt from the Curatorial Remark 1 in the object record: “Dr. Serunian inherited the book from his mother who was an Assyrian and brought it with her to this country. Dr. Serunian says that the covers were removed from the book to make it more easily portable when his mother's relatives escaped from Kurdistan to Persia in 1916.” </span><span class="se">\n\n</span><span class="s2">Authorities:</span><span class="se">\n\n</span><span class="s2">Mrs. Serunian:            see ...</span><span class="se">\n</span><span class="s2">Dr. H. H. Serunian:       see ...</span><span class="se">\n</span><span class="s2">Worcester, Massachusetts: see ...</span><span class="se">\n</span><span class="s2">Freer Gallery of Art:     see ...</span><span class="se">\n\n</span><span class="s2">Citations:</span><span class="se">\n\n</span><span class="s2">[a]. Curatorial Remark 1 in the object record.</span><span class="se">\n</span><span class="s2">[b]. Curatorial Remark 1 in the object record."</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="err">existence_interval</span><span class="p">:</span><span class="w"> </span><span class="s2">"1213/open"</span><span class="w">&#x000A;</span><span class="p">}</span><span class="w">&#x000A;&#x000A;</span></code></pre>
+            <h4 id="level-three-2">Level Three</h4>
+            
+            <pre class="highlight json"><code><span class="err">provenance</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;  </span><span class="err">object_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://asia.si.edu/collections/freer/object/10173"</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="err">provenance_text</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mrs. Serunian [1][a]; by inheritance to Dr. H. H. Serunian, her son, Worcester, Massachusetts [b]; purchased by Freer Gallery of Art, 1937.</span><span class="se">\n\n</span><span class="s2">Notes:</span><span class="se">\n\n</span><span class="s2">[1]. Excerpt from the Curatorial Remark 1 in the object record: “Dr. Serunian inherited the book from his mother who was an Assyrian and brought it with her to this country. Dr. Serunian says that the covers were removed from the book to make it more easily portable when his mother's relatives escaped from Kurdistan to Persia in 1916.” </span><span class="se">\n\n</span><span class="s2">Authorities:</span><span class="se">\n\n</span><span class="s2">Mrs. Serunian:            see ...</span><span class="se">\n</span><span class="s2">Dr. H. H. Serunian:       see ...</span><span class="se">\n</span><span class="s2">Worcester, Massachusetts: see ...</span><span class="se">\n</span><span class="s2">Freer Gallery of Art:     see ...</span><span class="se">\n\n</span><span class="s2">Citations:</span><span class="se">\n\n</span><span class="s2">[a]. Curatorial Remark 1 in the object record.</span><span class="se">\n</span><span class="s2">[b]. Curatorial Remark 1 in the object record."</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="err">existence_interval</span><span class="p">:</span><span class="w"> </span><span class="s2">"1213/open"</span><span class="p">,</span><span class="w">&#x000A;&#x000A;  </span><span class="err">periods</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">&#x000A;    </span><span class="p">{</span><span class="w">&#x000A;      </span><span class="err">period_certainty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">&#x000A;      </span><span class="err">original_text</span><span class="p">:</span><span class="w"> </span><span class="s2">"asdadadasd"</span><span class="p">,</span><span class="w">&#x000A;      </span><span class="err">footnote</span><span class="p">:</span><span class="w"> </span><span class="s2">"blah blah blah"</span><span class="p">,</span><span class="w">&#x000A;      </span><span class="err">citations</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"..."</span><span class="p">,</span><span class="w"> </span><span class="s2">"asdasd"</span><span class="p">],</span><span class="w">&#x000A;      </span><span class="err">owner</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;        </span><span class="err">owner_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"ulan:12345"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">owner_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">owner_relationship_to_previous</span><span class="p">:</span><span class="w"> </span><span class="s2">"her daugher"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">owner_residence_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"geonames:12345"</span><span class="w">&#x000A;        </span><span class="err">owner_residence_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">&#x000A;      </span><span class="p">},</span><span class="w">&#x000A;      </span><span class="err">custodian</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;        </span><span class="err">custodian_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"ulan:12345"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">custodian_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">custodian_relationship_to_previous</span><span class="p">:</span><span class="w"> </span><span class="s2">"her daugher"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">custodian_residence_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"geonames:12345"</span><span class="w">&#x000A;        </span><span class="err">custodian_residence_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">&#x000A;      </span><span class="p">},</span><span class="w">&#x000A;      </span><span class="err">transfer</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;        </span><span class="err">direct_transfer</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">location_certainty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">location_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"geonames:1234"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">method_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov_acq:gift"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">botb</span><span class="p">:</span><span class="w"> </span><span class="s2">"1995"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">bote</span><span class="p">:</span><span class="w"> </span><span class="s2">"1995"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">eotb</span><span class="p">:</span><span class="w"> </span><span class="s2">"1995"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">bote</span><span class="p">:</span><span class="w"> </span><span class="s2">"1995"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">botb_certainty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">bote_certainty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">eotb_certainty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">bote_certainty</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">       &#x000A;      </span><span class="p">},</span><span class="w">&#x000A;      </span><span class="err">agent</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;        </span><span class="err">agent_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"ulan:12346"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">agent_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">agent_residence_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">agent_residence_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"geonames:12346"</span><span class="w">&#x000A;      </span><span class="p">},</span><span class="w">&#x000A;      </span><span class="err">purchase</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">&#x000A;        </span><span class="err">price</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">currency</span><span class="p">:</span><span class="w"> </span><span class="s2">"lira"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">lot</span><span class="p">:</span><span class="w">  </span><span class="s2">"l. 12345"</span><span class="p">,</span><span class="w">&#x000A;        </span><span class="err">sale_id</span><span class="p">:</span><span class="w"> </span><span class="s2">"getty:12345"</span><span class="p">,</span><span class="w">&#x000A;      </span><span class="p">}</span><span class="w">&#x000A;    </span><span class="p">}</span><span class="w">&#x000A;  </span><span class="p">],</span><span class="w">&#x000A;&#x000A;  </span><span class="err">agents</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">&#x000A;    </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"ulan:12345"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">birth</span><span class="p">:</span><span class="w"> </span><span class="s2">"1995"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">birth_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">death</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">&#x000A;    </span><span class="err">death_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="p">},{</span><span class="w">&#x000A;    </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"ulan:12346"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">birth</span><span class="p">:</span><span class="w"> </span><span class="s2">"1800"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">birth_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">death</span><span class="p">:</span><span class="w"> </span><span class="s2">"1900"</span><span class="w">&#x000A;    </span><span class="err">death_certainty</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">&#x000A;  </span><span class="p">}],</span><span class="w">&#x000A;&#x000A;  </span><span class="err">places</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">&#x000A;    </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"geonames:12345"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"London, England"</span><span class="w">&#x000A;  </span><span class="p">},{</span><span class="w">&#x000A;    </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"geonames:12346"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pittsburgh, PA"</span><span class="w">&#x000A;  </span><span class="p">},</span><span class="w">&#x000A;&#x000A;  </span><span class="err">events</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">&#x000A;    </span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"getty:12345"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">venue</span><span class="p">:</span><span class="w"> </span><span class="s2">"ulan:12345"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">location</span><span class="p">:</span><span class="w"> </span><span class="s2">"geonames:12345"</span><span class="p">,</span><span class="w">&#x000A;    </span><span class="err">title</span><span class="p">:</span><span class="w"> </span><span class="s2">"Northbrook Sale"</span><span class="w">&#x000A;  </span><span class="p">}]</span><span class="w">&#x000A;</span></code></pre><div class="footnotes">
+              <ol>
+                <li id="fn:1">
+                  <p>We choose to use E7 Activity instead of E4 Period to model this series of activities for two reasons.  First, because it allows us to associate actors and objects directly with the Activity, which becomes useful at later levels, and second because we feel that it the class that most accurately represents the agency of human activity that defines this period. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+                </li>
+                <li id="fn:2">
+                  <p>We feel that using AAT to define our types is a suitable best practice, and one that we will continue throughout this model whenever possible.  Our feeling is that the implicit assignment of AAT vocabulary terms the class E55 Type through the use of <code>crm:P2_has_type</code> is an acceptable practice despite lack of explicit statement.  An alternate model of <code>crm:P2_has_type _:type. _:type skos:exactMatch _:aat_term .</code> is possible, but does not add any additional abilities to our model while adding complexity, and as such is discouraged. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <sidebar class='col-md-3 col-md-offset-1 well hidden-print' id='toc'>
+          <h3>Table of Contents</h3>
+          </p>
+          
+          <ul id="markdown-toc">
+            <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+            <li><a href="#background" id="markdown-toc-background">Background</a></li>
+            <li><a href="#design-principles" id="markdown-toc-design-principles">Design Principles</a></li>
+            <li><a href="#levels-of-provenance" id="markdown-toc-levels-of-provenance">Levels of Provenance</a>    <ul>
+                <li><a href="#level-one" id="markdown-toc-level-one">Level One</a></li>
+                <li><a href="#level-two" id="markdown-toc-level-two">Level Two</a></li>
+                <li><a href="#level-three" id="markdown-toc-level-three">Level Three</a></li>
+                <li><a href="#level-four-unimplemented" id="markdown-toc-level-four-unimplemented">Level Four <em>(unimplemented)</em></a></li>
+              </ul>
+            </li>
+            <li><a href="#textual-provenance-standard" id="markdown-toc-textual-provenance-standard">Textual Provenance Standard</a>    <ul>
+                <li><a href="#general-format" id="markdown-toc-general-format">General format</a></li>
+                <li><a href="#capitalization-of-the-first-letter" id="markdown-toc-capitalization-of-the-first-letter">Capitalization of the first letter</a></li>
+                <li><a href="#period-certainty" id="markdown-toc-period-certainty">Period Certainty</a></li>
+                <li><a href="#acquisition-method" id="markdown-toc-acquisition-method">Acquisition Method</a></li>
+                <li><a href="#name" id="markdown-toc-name">Name</a></li>
+                <li><a href="#birth-and-death-dates" id="markdown-toc-birth-and-death-dates">Birth and Death dates</a></li>
+                <li><a href="#location" id="markdown-toc-location">Location</a></li>
+                <li><a href="#period-of-ownership" id="markdown-toc-period-of-ownership">Period of Ownership</a></li>
+                <li><a href="#stock-numbers" id="markdown-toc-stock-numbers">Stock Numbers</a></li>
+                <li><a href="#footnotes" id="markdown-toc-footnotes">Footnotes</a></li>
+                <li><a href="#closing-punctuation" id="markdown-toc-closing-punctuation">Closing Punctuation</a></li>
+                <li><a href="#dealers-and-auction-houses" id="markdown-toc-dealers-and-auction-houses">Dealers and Auction Houses</a></li>
+                <li><a href="#notes-at-the-end-of-the-record" id="markdown-toc-notes-at-the-end-of-the-record">Notes at the end of the record.</a></li>
+              </ul>
+            </li>
+            <li><a href="#appendices" id="markdown-toc-appendices">Appendices</a>    <ul>
+                <li><a href="#i-why-text" id="markdown-toc-i-why-text">I. Why Text?</a></li>
+                <li><a href="#ii-example-provenance-as-text" id="markdown-toc-ii-example-provenance-as-text">II. Example Provenance as Text</a></li>
+                <li><a href="#iii-example-provenance-as-rdf" id="markdown-toc-iii-example-provenance-as-rdf">III. Example Provenance as RDF</a>        <ul>
+                    <li><a href="#level-one-1" id="markdown-toc-level-one-1">Level One</a></li>
+                    <li><a href="#level-two-1" id="markdown-toc-level-two-1">Level Two</a></li>
+                    <li><a href="#level-three-1" id="markdown-toc-level-three-1">Level Three</a></li>
+                  </ul>
+                </li>
+                <li><a href="#iv-example-provenance-as-json" id="markdown-toc-iv-example-provenance-as-json">IV. Example Provenance as JSON</a>        <ul>
+                    <li><a href="#level-one-2" id="markdown-toc-level-one-2">Level One</a></li>
+                    <li><a href="#level-two-2" id="markdown-toc-level-two-2">Level Two</a></li>
+                    <li><a href="#level-three-2" id="markdown-toc-level-three-2">Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          
+          <p>
+        </sidebar>
+      </article>
+    </main>
+    <footer class='page_footer container-fluid'>
+      <div class='row hidden-print'>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>QUICK LINKS</li>
+            <li><a href="http://elysa-demo.museumprovenance.org" target="_blank">Elysa Demo</a></li>
+            <li><a href="pages/team">The Art Tracks Team</a></li>
+            <li><a href="pages/press">Publications & Articles</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>REFERENCE MATERIAL</li>
+            <li><a href="/reference/standard">The Provenance Standard (v.0.2)</a></li>
+            <li><a href="/reference/acquisition_methods">Acquisition Methods</a></li>
+            <li><a href="/reference/dates">Date Parsing for Provenance</a></li>
+            <li><a href="/pages/example_records">Example Records</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>Source Code</li>
+            <li><a href="https://github.com/arttracks/museum_provenance">github.com/arttracks/museum_provenance</a></li>
+            <li><a href="https://github.com/arttracks/elysa">github.com/arttracks/elysa</a></li>
+            <!-- %li= link_to "github.com/arttracks/edtf_test_cases", "https://github.com/arttracks/edtf_test_cases" -->
+            <li><a href="https://github.com/arttracks/museum_provenance_website">github.com/arttracks/museum_provenance_website</a></li>
+          </ul>
+        </div>
+        <div class='col-sm-3 footer-col'>
+          <ul class='list-unstyled'>
+            <li class='header'>Contact Us</li>
+            <li><a href="http://www.cmoa.org/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div id='footer_logo'>
+            Art Tracks is a project of
+            <br>
+            <h3 class='visible-print-block'>Carnegie Museum of Art</h3>
+            <img alt='Carnegie Museum of Art' class='img-responsive logo hidden-print' src='/images/cmoa_logo.png'>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <div class='copyright'>
+            One of the four Carnegie Museums of Pittsburgh.
+            <br class='visible-xs-inline'>
+            &copy; Carnegie Museum of Art, Carnegie Institute 2014.
+            <br>
+            This site and its content are released under the
+            <a href='https://creativecommons.org/publicdomain/zero/1.0/'>CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.</a>
+            <br>
+            All logos are the property of their respective owners.  All images of art are  &copy; Carnegie Museum of Art.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-1213892-9', 'auto');
+      ga('send', 'pageview');
+    
+      ga('create', 'UA-65401320-1' , 'auto' , {'name': 'unified'});
+      ga('unified.send', 'pageview');
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
