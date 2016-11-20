@@ -80,12 +80,13 @@ of processing.
 > 
 > Authorities:
 > 
-> John Doe:                      see http://vocabs.getty.com/authorities/123455  
+> John Doe:                      see http://ulan.getty.com/123455  
 > Boise, ID:                     see http://geonames.com/123456  
 > Sally Moe, Baroness of Leeds:  see http://viaf.org/123456  
 > Pittsburgh, PA:                see http://tgn.getty.org/123456  
 > London, England:               see http://geonames.com/555121  
-> Christie's:                    no record found.
+> Christie's:                    see http://viaf.org/1234569
+> Sale of Pleasant Goods:        no record found.
 > 
 > Citations:
 > 

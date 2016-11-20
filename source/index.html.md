@@ -12,6 +12,7 @@ Art Tracks is an initiative of the [Carnegie Museum of Art (CMOA)](http://www.cm
   
 Once we have converted our provenance information into structured data, we can ask complex questions like “Which works in our collection were in the same city in the same year?” or “Which artworks in our collection were owned by an artist whose work is also in our collection?” By doing more with the data we already have, we can discover gaps in knowledge, shape collections policy, and better understand the ecosystem of the collection and the institution. 
 
+For an overview of the project, please check out the videos from the [2016 Digital Provenance Symposium](/pages/scholars_day_2016).
 
 
 ## Reference Materials
@@ -27,6 +28,9 @@ A thesauri of [**Acqusition Methods**](/reference/acquisition_methods) has been 
 The [**museum_provenance**](https://github.com/cmoa/museum_provenance) library is the core technology developed for this project.  It takes provenance records and converts them into structured, well-formatted data.
 
 The [**Elysa**](https://github.com/cmoa/elysa) tool is a user interface designed for museum professionals.  It assists with verifying, cleaning, and modifying provenance records. 
+
+An initial [**Prototype**](https://github.com/arttracks/provenance-interactive) of a in-gallery interactive was created in Spring 2015 to research ways to present detailed provenance information to the public.  Much of the work here will inform the upcoming 2017 Northbrook Initiative gallery experience.
+
 
 ---
 

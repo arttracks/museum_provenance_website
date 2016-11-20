@@ -73,6 +73,7 @@ The [University of Pittsburgh's History of Art & Architecture](http://www.haa.pi
 
 There have been several articles written about the Art Tracks project over the years.  Below is an incomplete list of articles and blog posts about our ongoing work.
 
+* [A Fresh Look at Provenance *(Museum Magazine, July/August 2016)*](http://www.bluetoad.com/publication/?i=318411&ver=html5&p=36) (subscribers only)
 * [2016 Creators of the Year Awards *(April 2016)*](http://createpgh.org/our-crew/#block-39159611a67423821012)
 * [Museum Data And What To Do With It: Carnegie Museums Of Pittsburgh *(Art Management and Technology Lab, April 13, 2016)*](http://amt-lab.org/blog/2016/3/museum-data-and-what-to-do-with-it-carnegie-museum-of-art)
 <!-- * [Observer CULTURE, December 18, 2015](http://observer.com/2015/12/brooklyn-museum-hires-nancy-spector-clark-to-show-prado-nudes-and-more/) -->
@@ -88,4 +89,4 @@ There have been several articles written about the Art Tracks project over the y
 
 ## Mentions of Art Tracks
 
-* [A Conversation with the Gettys New Semantic Architect](http://blogs.getty.edu/iris/a-conversation-with-the-gettys-new-semantic-architect/?utm_content=bufferfcb59&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+* [A Conversation with the Gettys New Semantic Architect](http://blogs.getty.edu/iris/a-conversation-with-the-gettys-new-semantic-architect)
