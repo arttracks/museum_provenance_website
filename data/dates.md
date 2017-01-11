@@ -158,7 +158,7 @@ Using the CIDOC-CRM recommendation for dates, we re
 
 date range| phrasing
 ---------:|:--------------------------------------
-?-?...?-? | No date.     
+?-?...?-? | no date
 {: .table.table-hover.date_table}
 
 
@@ -198,7 +198,7 @@ X-Y...Z-? | sometime between 1995 and 1996 until at least 1997
 X-X...?-Y | 1995 until sometime before 1996
 X-Y...?-Z | sometime between 1995 and 1996 until sometime before 1997 
 ?-X...Y-Y | by 1995 until 1996
-?-X...X-Y | in 1995 until sometime before 1995
+?-X...X-Y | in 1995 until sometime before 1996
 ?-X...Y-Z | by 1995 until sometime between 1996 and 1997
 X-?...Y-Y | after 1995 until 1996
 X-?...Y-Z | after 1995 until sometime between 1996 and 1997

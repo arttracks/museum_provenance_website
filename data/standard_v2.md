@@ -25,7 +25,6 @@ The Art Tracks project is designed to ease the transition between these two mode
 As we have been developing the linked data model for this standard, we have had three guiding principles:
 
 The first is to maintain the integrity of the CIDOC-CRM, and to use the predicates and classes that it (and its extensions) provide whenever possible.  
-
 The second is to consider that the major purpose of modeling provenance as structured data is to enhance the usability of the provenance—particularly the searchability of the provenance.  At every step, we would like to enhance the ability of a user to locate specific events in the history of an object, and we aim to provide as many hooks into the provenance as possible.
 
 Third, we aim to capture completely the information that makes up the written provenance text.  Provenance data is extremely concise, and to omit any word from the provenance is to omit a detail that the provenance researcher deemed important. 
@@ -43,17 +42,12 @@ At this level, we describe a provenance text in which the individual entities co
 This model is made up of two core CRM entities: a `E31 Document` and an `E7 Activity`.  The document is the provenance text itself, and the activity records the ongoing activities of the owners of an object that involve transfers of ownership and custody.[^1]  Both of these entities are assigned a `E55 Type` of [`aat:300055863`](http://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=300055863), which is the AAT term for "provenance".[^2]
 
 
-
-[^1]:  We choose to use E7 Activity instead of E4 Period to model this series of activities for two reasons.  First, because it allows us to associate actors and objects directly with the Activity, which becomes useful at later levels, and second because we feel that it the class that most accurately represents the agency of human activity that defines this period. 
-
-
 [^2]:  We feel that using AAT to define our types is a suitable best practice, and one that we will continue throughout this model whenever possible.  Our feeling is that the implicit assignment of AAT vocabulary terms the class E55 Type through the use of `crm:P2_has_type` is an acceptable practice despite lack of explicit statement.  An alternate model of `crm:P2_has_type _:type. _:type skos:exactMatch _:aat_term .` is possible, but does not add any additional abilities to our model while adding complexity, and as such is discouraged.
 
-[^3]: transitivity of contained_within
+
 
 
 ### Level Two
-
 
 This level assumes that there is a software entity that is capable of 
 processing the provenance text, but that it doesn't have any special 
@@ -106,7 +100,7 @@ If the entire period is uncertain, `Possibly`, otherwise nothing.
 
 **The method of acquisition or transfer.**
 
-Controlled vocabulary— [see the term list](/acquisition_methods).
+Controlled vocabulary— [see the term list](/reference/acquisition_methods).
 
 Usually the acquisition method goes before the name.  For grammatical sanity, it will occasionally go after the name & life dates, though this is discouraged.
 

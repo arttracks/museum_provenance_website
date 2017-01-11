@@ -8,25 +8,6 @@ hero_image_url: "http://www.cmoa.org/CollectionDetail.aspx?item=1016222"
 
 Art Tracks would not be possible without the dedicated effort of many people throughout the Carnegie Museums and across the world.
 
-### Tracey Berg-Fulton
-
-![Photo of Tracey Berg-Fulton](images/tracey_headshot.jpg)
-{: .headshot }
-
-Tracey is the Collections Database Associate for Art Tracks, leading the research on the art collection of the Baring family, later to include the Earls of Northbrook. Her speaking and writing focus on the intersection of collections and technology, while her research concentrates on the material culture of tenements, sanitation theory and ceramics, and museum operations in times of war. Since 2012, she has served as web chair of the Registrars Committee of the American Alliance of Museums. Tracey is a graduate of Otterbein University and the University of Glasgow. She and her husband share their home with an adopted Giant Schnabrador named Walter.
-
-
-<div class="clearfix"></div>
-
-### Akemi May
-
-![Photo of Akemi May](images/akemi_headshot.jpg)
-{: .headshot}
-
-Akemi May is Assistant Curator of Fine Arts & Decorative Arts and Design at Carnegie Museum of Art. She is responsible for the care of the museum’s collections of pre-1945 paintings, sculpture, works on paper, and all decorative arts and design objects from ancient Greece through the present day. May is currently working on an exhibition of Neoclassical and Romantic works drawn from both departments’ holdings, Art Tracks, and the Northbrook Initiative, in addition to her day to day curatorial duties. A native of California, May received her BA in Psychology and the History of Art and Architecture from the University of California Santa Barbara and her MA in Art History from Syracuse University. She previously worked at the Getty Research Institute, in Los Angeles, and was an intern in the European paintings department at the Virginia Museum of Fine Arts, in Richmond. 
-
-<div class="clearfix"></div>
-
 ### David Newbury
 
 ![Photo of David Newbury](images/david_headshot.jpg)
@@ -38,6 +19,21 @@ David is also an Emmy-award winning filmmaker, creative developer, and animator 
 
 <div class="clearfix"></div>
 
+### Emily Mirales
+
+Emilty Mirales is the Art Tracks Project Specialist.
+
+<div class="clearfix"></div>
+
+
+### Akemi May
+
+![Photo of Akemi May](images/akemi_headshot.jpg)
+{: .headshot}
+
+Akemi May is Assistant Curator of Fine Arts & Decorative Arts and Design at Carnegie Museum of Art. She is responsible for the care of the museum’s collections of pre-1945 paintings, sculpture, works on paper, and all decorative arts and design objects from ancient Greece through the present day. May is currently working on an exhibition of Neoclassical and Romantic works drawn from both departments’ holdings, Art Tracks, and the Northbrook Initiative, in addition to her day to day curatorial duties. A native of California, May received her BA in Psychology and the History of Art and Architecture from the University of California Santa Barbara and her MA in Art History from Syracuse University. She previously worked at the Getty Research Institute, in Los Angeles, and was an intern in the European paintings department at the Virginia Museum of Fine Arts, in Richmond. 
+
+<div class="clearfix"></div>
 
 ### Elizabeth Tufts Brown
 
@@ -71,14 +67,16 @@ Louise "Lulu" Lippincott is the curator of fine arts at Carnegie Museum of Art. 
 
 ### Travis Snyder, database management
 
+
+
 ---
+
+# Partners
 
 ### For Art Tracks, Phase II, we are joined by:
 
 * [The Yale Center for British Art](http://britishart.yale.edu/)
 * [Freer and Sackler Galleries](http://www.asia.si.edu/)
-
----
 
 ### The Art Tracks team would also like to thank:
 
@@ -87,3 +85,19 @@ Louise "Lulu" Lippincott is the curator of fine arts at Carnegie Museum of Art. 
 * [The Walters Art Museum](https://www.thewalters.org)
 * ...and many, many other musuems and individuals.
 
+---
+
+
+# Art Tracks Alumni
+
+### Tracey Berg-Fulton
+
+![Photo of Tracey Berg-Fulton](images/tracey_headshot.jpg)
+{: .headshot }
+
+Tracey was the Collections Database Associate for Art Tracks. Her speaking and writing focus on the intersection of collections and technology, while her research concentrates on the material culture of tenements, sanitation theory and ceramics, and museum operations in times of war. Since 2012, she has served as web chair of the Registrars Committee of the American Alliance of Museums. Tracey is a graduate of Otterbein University and the University of Glasgow. She and her husband share their home with an adopted Giant Schnabrador named Walter.
+
+
+<div class="clearfix"></div>
+
+### Jeff Inscho

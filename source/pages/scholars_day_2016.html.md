@@ -24,7 +24,6 @@ The initial announcement of the symposium is [preserved here](/pdfs/symposium_an
 
 ## Videos of the Talks
 
-
 **Louise Lippincott**, Curator of Fine Arts at Carnegie Museum of Art, discussed the origins of the Art Tracks project and its potential impact on the field of art history, as well as its impact on her curatorial practice at CMOA.
 
 * [Introduction to Art Tracks](https://vimeo.com/188977164) - [(slides)](/slides/lulu_lippincott_-_introduction_to_art_tracks.pptx)
