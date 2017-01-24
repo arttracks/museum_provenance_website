@@ -39,8 +39,10 @@ Linked data is still a relatively new concept in museums, and very few museums a
 
 At this level, we describe a provenance text in which the individual entities contained within the document are not modeled in any fashion. This is a standard model for provenance within an institution where the provenance is merely a single text object, and no additional work is done to model the provenance.
 
-This model is made up of two core CRM entities: a `E31 Document` and an `E7 Activity`.  The document is the provenance text itself, and the activity records the ongoing activities of the owners of an object that involve transfers of ownership and custody.  Both of these entities are assigned a `E55 Type` of [`aat:300055863`](http://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=300055863), which is the AAT term for "provenance".[^2]
+This model is made up of two core CRM entities: a `E31 Document` and an `E7 Activity`.  The document is the provenance text itself, and the activity records the ongoing activities of the owners of an object that involve transfers of ownership and custody[^3].  Both of these entities are assigned a `E55 Type` of [`aat:300055863`](http://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=300055863), which is the AAT term for "provenance".[^2]
 
+
+[^3]:  We choose to use E7 Activity instead of E4 Period to model this series of activities for two reasons.  First, because it allows us to associate actors and objects directly with the Activity, which becomes useful at later levels, and second because we feel that it the class that most accurately represents the agency of human activity that defines this period. 
 
 [^2]:  We feel that using AAT to define our types is a suitable best practice, and one that we will continue throughout this model whenever possible.  Our feeling is that the implicit assignment of AAT vocabulary terms the class E55 Type through the use of `crm:P2_has_type` is an acceptable practice despite lack of explicit statement.  An alternate model of `crm:P2_has_type _:type. _:type skos:exactMatch _:aat_term .` is possible, but does not add any additional abilities to our model while adding complexity, and as such is discouraged.
 
