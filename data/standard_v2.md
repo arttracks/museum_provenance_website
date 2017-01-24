@@ -39,7 +39,7 @@ Linked data is still a relatively new concept in museums, and very few museums a
 
 At this level, we describe a provenance text in which the individual entities contained within the document are not modeled in any fashion. This is a standard model for provenance within an institution where the provenance is merely a single text object, and no additional work is done to model the provenance.
 
-This model is made up of two core CRM entities: a `E31 Document` and an `E7 Activity`.  The document is the provenance text itself, and the activity records the ongoing activities of the owners of an object that involve transfers of ownership and custody.[^1]  Both of these entities are assigned a `E55 Type` of [`aat:300055863`](http://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=300055863), which is the AAT term for "provenance".[^2]
+This model is made up of two core CRM entities: a `E31 Document` and an `E7 Activity`.  The document is the provenance text itself, and the activity records the ongoing activities of the owners of an object that involve transfers of ownership and custody.  Both of these entities are assigned a `E55 Type` of [`aat:300055863`](http://www.getty.edu/vow/AATFullDisplay?find=&logic=AND&note=&subjectid=300055863), which is the AAT term for "provenance".[^2]
 
 
 [^2]:  We feel that using AAT to define our types is a suitable best practice, and one that we will continue throughout this model whenever possible.  Our feeling is that the implicit assignment of AAT vocabulary terms the class E55 Type through the use of `crm:P2_has_type` is an acceptable practice despite lack of explicit statement.  An alternate model of `crm:P2_has_type _:type. _:type skos:exactMatch _:aat_term .` is possible, but does not add any additional abilities to our model while adding complexity, and as such is discouraged.
@@ -66,7 +66,7 @@ of processing.
 
 ### General format
 
-> Possibly purchased at auction by John Doe? [1910?-1995?], Boise, ID, for his daughter Sally Moe, Baroness of Leeds [1940-], Pittsburgh, PA?, at "Sale of Pleasant Goods", Christie's, in London, England, sometime after November 5, 1975 (stock no. 10, for $1000) [1][a][b].
+> Possibly purchased at auction by John Doe? [1910?-1995?], Boise, ID, for daughter of previous, Sally Moe, Baroness of Leeds [1940-],  Pittsburgh, PA?, at "Sale of Pleasant Goods", Christie's, in London, England, sometime after November 5, 1975 (stock no. 10, for $1000) [1][a][b].
 > 
 > Notes:
 > 
@@ -85,39 +85,89 @@ of processing.
 > Citations:
 > 
 > [a]. See Arnau, F. (1961). The art of the faker: Three thousand years of deception. Boston: Little, Brown. http://www.worldcat.org/oclc/873114  
-> [b].  See curatorial file, Carnegie Museum of Art.
+> [b]. See curatorial file, Carnegie Museum of Art.
 
 
 ### Capitalization of the first letter
 
-If this is the first record or the previous record ends in a period, capitalize the first word.  Otherwise, use standard capitalization (if it's a proper name, capitalize, if it's not, don't.)
+If this is the first record or the previous record ends in a period, capitalize the first word.  Otherwise, use standard capitalization. (if it's a proper name, capitalize, if it's not, don't.)
 
 ### Period Certainty
 
-If the entire period is uncertain, `Possibly`, otherwise nothing.
+If the entire period is uncertain, `Possibly`, otherwise nothing.[^1]
+
+[^1]: We have decided not to include a vocabulary or "levels" of uncertainty, because we don't have a good system for determining how these levels would be specified.  We also differenciate between "Probably", which refers to the entire period, and "?", which we use to indicate that individual parts of the record might be questionable.
 
 ### Acquisition Method
 
 **The method of acquisition or transfer.**
 
-Controlled vocabulary— [see the term list](/reference/acquisition_methods).
+Acquisition methods describe the means and terms around the transfer of custody and/or ownership of the work.  This covers standard methods such as sales or gifts, but it also covers creation, destruction, loans, and other ways that artwork can be transferred.  In particular, is is worth mentioning party transformations, which are transfers that happen when the legal owner of the work changes because the owner's legal identity has changed, not because of any transfer of the work itself:  for example, marriage, widowhood, or institutional consolidation.
 
-Usually the acquisition method goes before the name.  For grammatical sanity, it will occasionally go after the name & life dates, though this is discouraged.
+An exhaustive list of these terms are available [on our website](/reference/acquisition_methods), as well as a [SKOS ontology](/acquisition_methods.ttl) that defines the vocabulary. 
 
-### Name
+Each term has a name, but it also has a preferred phrase that signifies that term for use in written provenance.  When writing a provenance, this acquisition method phrase appears before the name.
 
-**The name of the party.**
+### Types of Parties
+
+When reviewing these records, there are often multiple people involved: owners, custodians, and agents, and auction houses.  Often the owner and custodian are the same person, and agents may not always be present.
+
+When writing this, the name that appears after the acquisition method is assumed to be the acquiring party **UNLESS** that name clause is followed by the word "for" followed by another name clause.  In that case, the first name refers to the purchasing agent, and the second to the acquiring party.   
+
+For example, "Purchased by John Doe" assumes that John is the acquiring party, but "Purchased by John Doe for Sally Moe" assumes that Sally is the acquiring party and John is her agent.
+
+Commissions where the artist is not assumed to have ownership of the work would also be referred to this way, for example: "Commissioned from Fritz Franz, the artist, for Sally Moe" would assume that Sally Moe was the acquiring party, and that Fritz was the artist.  In cases where the artist is not known, you can use the alternate form "Commissioned by Sally Moe", though this is discouraged.
+
+Seller's agents, typically auction houses and galleries, can be referred to by a name clause followed by "at"[^agent_clause].  If there is a specific, named event involved, that event should be called out in double quotation marks, followed by a comma.
+
+For example, 'Purchased by John Doe at Bitforms Gallery' or 'Purchased by John Doe at "Digital Works", Bitforms Gallery'.
+
+[^agent_clause]: Should this be 'from', not 'at'?  Would make more sense when talking about individuals who are sellers agents, but might be confusing.  We could also use 'through' here...
+
+
+### Party Clauses
+
+Each individual mentioned follows the same form.
+
+**The name of the acquiring party.**
 
 > Claude Monet
 
-If there are clauses, like, "wife of previous" or "the artist", they follow the name.  These clauses are a semi controlled vocabulary—it can be extended as needed.  Please see the *attached list* for current exceptions and vocabulary.
+**Titles**
 
-> Michel Monet, son of the artist
+Often parties have titles that are associated with them.  These should be included when relevant, however, they MUST be included as part of the name in the authority record for the party.  See the section on Authority Records for more information about this.
+
+**Relationships**
+
+Often it can be clarifying to state the relationship between the acquiring party and the previous owner.  Given the myriad ways that humans can be related, this is often better addressed through a comprehensive model in an athority file.  Thus, we have chosen to not allow any possible relationship here—instead, we allow only a single, familial relationship.  If there are multiple relationships, as occasionally happens, we prioritize marriage over any other relationship.
+
+The allowed relationships are:
+
+* "wife of previous"
+* "husband of previous"
+* "son of previous"
+* "daughter of previous"
+* "nephew of previous"
+* "niece of previous"
+* "mother of previous"
+* "father of previous"
+* "uncle of previous"
+* "aunt of previous"
+* "grandchild of previous"
+* "grandparent of previous"
+* "relative of previous"
+
+The other specific clause allowed here is "the artist", which should appear ONLY in the first period of a provenance.  Occasionally, an artist may re-acquire a work, but in those cases it should not be explicitly mentioned that they are the artist. 
+
+These clauses directly follow[^follow] the name, separated by a comma.  For example:
+
+> Michel Monet, son of previous
 
 not
 
-> Son of the artist, Michel Monet
+> Son of previous, Michel Monet
 
+[^follow]: Should this be before or after?  Worth talking through.
 
 If the name is uncertain, follow the name with a question mark.
 
@@ -127,7 +177,7 @@ not
 
 > Possibly George Strait
 
-This prevents confusion around the question of which aspect is certain of uncertain, the party or the entire record.
+Using a question mark and not a certainty word prevents confusion around the question of which aspect is certain of uncertain, the party or the entire record.
 
 
 If the party's name has multiple initials, use a space between them.
@@ -138,19 +188,14 @@ not
 
 > J.J. Abrams
 
-For estate and other sales, the party is the gallery or auction house that hosted the sale, not the name of the sale. The name of the sale should be contained within a footnote if known.
 
-If the gallery is not known, the party is "The estate of Claude Monet" or something similar.
+If the party is not known, use **Unknown party** or **Unknown collector** or something similar.  Don't leave it blank.
 
-If the part is not known, use **Unknown party** or **Unknown collector** or something similar.  Don't leave it blank.
-
-If the party is a marriage, and the work is co-owned by the parties of the marriage, the party should be:
+If the acquiring party is a marriage, a partnership, a purchase in shares, or any other form of joint ownership, there must be an entity that holds legal ownership of the work.  For instance:
 
 > Mr & Mrs. Marshall Fields III
 
-For marriages, we are recording only the name of the man as per tradition.  If the wife's name is known, attach it in a footnote.
-
-This is the marriage of these two people, not either of these people themselves.  Any dates or locations should refer to the marriage, and a transfer of provenance should occur if a marriage ends in either death or divorce. 
+This is the marriage of these two people, not either of these people themselves.  Any dates or locations should refer to the marriage, and a provenance event (typically a Transformation of Party) should occur if a marriage ends in either death or divorce. 
 
 ### Birth and Death dates
 
@@ -158,7 +203,7 @@ This is the marriage of these two people, not either of these people themselves.
 Years of operation if an organization.  
 Years of marriage if a marriage.**
 
-Birth and death dates are years, enclosed within braces and separated by a dash.
+Birth and death dates are years, enclosed within braces and separated by a dash.  
 
 > [1880-1955]
 
@@ -174,21 +219,32 @@ For years BCE,
 
 > [500BCE-450BCE]
 
-### Location
+### Locations
 
-**The location of the owner of the artwork at the time of acquisition.**
+**A location associated with the owner of the artwork at the time of acquisition.**
 
-*Is this the main residence of the owner?*
+Locations in provenance have traditionally be used as a way to uniquely identify individuals.  Because of this, the nature of the location traditionally recorded in provenance is ambiguous—it doesn't have specific semantic meaning.  This standard uses Linked Data unique identifiers as a technique for uniquely identifying individuals, but having these locations present still provides benefits to humans reading the written records.
 
-> Boston, MA
+Because of this, we have chosen to consider the location that directly follows any party's name to be a location **associated** with that person.  In general, it would be appropriate to choose a location most appropriate for the object under discussion, but that is not a requirement, just a suggestion.
 
-or 
+For the specific location where an acquisition takes place, we've added the ability to have a location preceded by `in`.  This location is explicitly the location where the acquisition took place, and is often associated with an auction house or sale.  None of these locations are required, but it can be helpful if the location is known to explicitly call it out using the `in` form because it helps with location-based research.
 
-> Paris, France
+For example:  
 
-or 
+> Purchased by John Doe, London, England;
 
-> Highclere Castle, Hampshire, England
+Would mean that London is a location primarily associated with John, even if the artwork was purchased while he was on holiday in Spain.
+
+> Purchased by John Doe in Barcelona, Spain;
+
+Would explicitly place that purchase in Spain, but would not associate John with Barcelona (beyond his potential presence to purchase the work).
+
+> Purchased by John Doe, London, England, in Barcelona, Spain;
+
+Would explicitly state both facts.  This is often not required, but can be done if it is clarifying in some way.
+
+
+#### Writing Specific Locations
 
 If the location is uncertain, us a question mark following the last word of the location.
 
@@ -197,13 +253,21 @@ If the location is uncertain, us a question mark following the last word of the 
 
 If the location is in the US, record the city and the state (in zip code two letter abbreviated form, without periods, and with a comma between the city and the state.)
 
-If the location is outside of the US, record the city, the provence or state (if required to prevent ambiguous locations), and the country.  Each of these should be seperated by a comma.
+> Boston, MA
+
+
+If the location is outside of the US, record the city, the province or state (if required to prevent ambiguous locations), and the country.  Each of these should be separated by a comma.
+
+> Paris, France
 
 If the location is in a named, notable building, record that building.
 
-If the location has changed names over time, The name of the location is the name of the location at the time of the acquisition.  i.e. Leningrad, not St. Petersburg, if the acquisition took place between 1924 and 1991.
+> Highclere Castle, Hampshire, England
 
-Do not record street names or street numbers.  If this is essential for the record this information can be recorded in a footnote.  Never attach specific identifying information of the party the Museum acquired the work from.
+
+Do not record street names or street numbers within provenance locations.
+
+If the location has changed names over time, the name of the location is typically recorded the name of the location at the time of the acquisition.  i.e. Leningrad, not St. Petersburg, if the acquisition took place between 1924 and 1991.  All locations are typically recorded in English, and should be in written using the most recognizable or appropriate form. Locations are included in the Authority section, which helps deal with the ambiguity of names for specific places.  Think of the words as being a way to describe the location as it would be referred to in art history, and the Authority record referring to a specific physical location.
 
 ### Period of Ownership
 
@@ -284,12 +348,15 @@ This maintains the historic distinction between primary owners and the auctionne
 
 Once all owners are recorded, footnotes appear.
 
-> NOTES:  [1] This is a note. [2] This is also a note.
+> Notes:  [1] This is a note. [2] This is also a note.
 
-the string ' NOTES: ' indicates that the footnote section is beginning.   each note is indicated by a number within brackets followed by the note.  Do not link multiple records to a single footnote—duplicate the information if required.   That way, unintentional changes of one owner do not accidentally propagate to other sections.
+the string ' Notes: ' indicates that the footnote section is beginning.   each note is indicated by a number within brackets followed by the note.  Do not link multiple records to a single footnote—duplicate the information if required.   That way, unintentional changes of one owner do not accidentally propagate to other sections.
 
-(due to technical reasons, there is a limit of 99 footnotes per-provenance text.  If this becomes a problem, we can address this in a future version.)
 
+### Authority
+
+
+### Citations
 
 
 ----

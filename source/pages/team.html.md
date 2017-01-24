@@ -21,7 +21,10 @@ David is also an Emmy-award winning filmmaker, creative developer, and animator 
 
 ### Emily Mirales
 
-Emilty Mirales is the Art Tracks Project Specialist.
+![Photo of Emily Mirales](images/emily_headshot.jpg)
+{: .headshot}
+
+Emily is a recent graduate of the University of Pittsburgh, where she received a BA in the History of Art & Architecture and Anthropology. She’s been at the Carnegie Museum of Art for almost two years in a few different positions. During the summer of 2015, she worked in the Decorative Arts & Design Department as a Milton Fine Museum Professions Fellow, assisting with various tasks related to the exhibition Silver to Steel: The Modern Design of Peter Muller-Munk. She continued to volunteer at CMOA through her senior year at Pitt and later worked as Departmental Assistant for the Decorative Arts & Design, Fine Arts, Curatorial, and Education Departments. As part of the Art Tracks team, Emily assists with project organization, research, user testing, and documentation.
 
 <div class="clearfix"></div>
 
