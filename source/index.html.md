@@ -34,5 +34,5 @@ An initial [**Prototype**](https://github.com/arttracks/provenance-interactive) 
 
 ---
 
-*Initial funding for **Art Tracks** was provided in part by a generous grant by the [Institute of Museum and Library Services](http://www.imls.gov).  Funding for Phase II has been provided by the [National Endowment for the Humanities](http://www.neh.gov/) with additional funding provided by grants from the [Kress Foundation](http://www.kressfoundation.org) and the [Paul Mellon Centre for Studies in British Art](http://www.paul-mellon-centre.ac.uk/).*
+*Initial funding for **Art Tracks** was provided in part by a generous grant by the [Institute of Museum and Library Services](http://www.imls.gov).  Funding for Phase II has been provided by the [National Endowment for the Humanities](http://www.neh.gov/) with additional research support provided by the [Samuel H. Kress Foundation](http://www.kressfoundation.org) and the [Paul Mellon Centre for Studies in British Art](http://www.paul-mellon-centre.ac.uk/).*
 {: .funding }
