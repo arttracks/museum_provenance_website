@@ -19,6 +19,8 @@ For an overview of the project, please check out the videos from the [2016 Digit
 
 The [**CMOA Provenance Standard**](/reference/standard) is a strict superset of the AAM provenance standard, designed to resolve ambiguities and provide guidance and machine-readability. A draft version (v. 0.2) has been published.  Examples of [records written using the CMOA style](/pages/example_records) are available.
 
+The JSON version of the standard also has a [JSON-Schema](/provenance_schema.json) available that both documents and validates the intermediate JSON version of the provenance standard.
+
 A thesauri of [**Acqusition Methods**](/reference/acquisition_methods) has been created to help explain and define the various ways that works of art can change hands.  There is also [a SKOS version](/acquisition_methods.ttl) of this vocabulary available.
 
 
