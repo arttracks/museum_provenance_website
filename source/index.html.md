@@ -2,7 +2,7 @@
 title: "Art Tracks"
 hero_image: "picking_fruit.jpg"
 hero_image_credit: "Mary Cassatt, *Young Women Picking Fruit* (detail), 1894. Carnegie Museum of Art, Patron Arts Fund, 22.8."
-hero_image_url: "http://www.cmoa.org/CollectionDetail.aspx?item=1004771"
+hero_image_url: "https://collection.cmoa.org/objects/89649ae7-a33d-4f21-b309-ac7e0633b527"
 ---
 
 
@@ -21,8 +21,7 @@ The [**CMOA Provenance Standard**](/reference/standard) is a strict superset of 
 
 The JSON version of the standard also has a [JSON-Schema](/provenance_schema.json) available that both documents and validates the intermediate JSON version of the provenance standard.
 
-A thesauri of [**Acqusition Methods**](/reference/acquisition_methods) has been created to help explain and define the various ways that works of art can change hands.  There is also [a SKOS version](/acquisition_methods.ttl) of this vocabulary available.
-
+A thesauri of [**Acquisition Methods**](/reference/acquisition_methods) has been created to help explain and define the various ways that works of art can change hands.  There is also [a SKOS version](/acquisition_methods.ttl) of this vocabulary available.
 
 
 ## Software Tools
